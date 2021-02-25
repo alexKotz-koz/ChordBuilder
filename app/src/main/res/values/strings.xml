@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">ChordBuilderV2</string>
+    <string name="submit">submit</string>
+    <string-array name="notes_array">
+        <item> </item>
+        <item>C</item>
+        <item>C#</item>
+        <item>Db</item>
+        <item>D</item>
+        <item>D#</item>
+        <item>Eb</item>
+        <item>E</item>
+        <item>F</item>
+        <item>F#</item>
+        <item>Gb</item>
+        <item>G</item>
+        <item>G#</item>
+        <item>Ab</item>
+        <item>A</item>
+        <item>A#</item>
+        <item>Bb</item>
+        <item>B</item>
+    </string-array>
+
+
+</resources>
