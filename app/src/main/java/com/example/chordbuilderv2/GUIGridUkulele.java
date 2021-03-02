@@ -2,6 +2,7 @@ package com.example.chordbuilderv2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -168,6 +169,8 @@ public class GUIGridUkulele extends AppCompatActivity {
     }
 
     public void submitClick(View view) {
-        System.out.println("inSubmit");
+        Intent intent = new Intent(getApplicationContext(),UkuleleActivity.class);
+        intent.putExtra("finalist",finalList);
+        startActivity(intent);
     }
 }
