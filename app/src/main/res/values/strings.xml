@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">ChordBuilderV2</string>
     <string name="submit">submit</string>
+    <string name="metronome">Metronome</string>
     <string-array name="notes_array">
         <item> </item>
         <item>C</item>

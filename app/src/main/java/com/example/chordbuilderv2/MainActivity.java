@@ -1,25 +1,25 @@
 package com.example.chordbuilderv2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
     ChordBuilderDBHelper chordDatabaseHelper;
-    //ChordWrapper chordWrapper;
     private Handler mainHandler;
-   // ChordHandlerThread chordHandlerThread;
-    Button ukukleleButtonMain;
+    Button ukuleleButtonMain;
     Button guitarButtonMain;
-
+    Menu mainMenu;
     ChordBuilderDBHelper chordBuilderDBHelper;
-    Menu menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +27,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         chordDatabaseHelper = new ChordBuilderDBHelper(getApplicationContext());
         chordDatabaseHelper.getReadableDatabase();
-        ukukleleButtonMain = findViewById(R.id.buttonUkulele);
+        ukuleleButtonMain = findViewById(R.id.buttonUkulele);
         guitarButtonMain = findViewById(R.id.buttonGuitar);
         chordBuilderDBHelper = new ChordBuilderDBHelper(getApplicationContext());
+
 
     }
     public void onClickUkulele(View view){
@@ -40,6 +41,33 @@ public class MainActivity extends AppCompatActivity {
     public void onClickGuitar(View view){
         Intent intent = new Intent(getApplicationContext(), GUIGridGuitar.class);
         startActivity(intent);
+    }
 
+    public void onClickSavedGuitar(View view){
+
+    }
+
+    public void onClickSavedUkulele(View view){}
+
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_main,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.item_home:
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
+                return true;
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
