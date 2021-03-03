@@ -43,11 +43,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onClickSavedGuitar(View view){
-
+    public void onClickSavedChord(View view){
+        Intent intent = new Intent(getApplicationContext(), SavedGuitarChordsActivity.class);
+        startActivity(intent);
     }
 
-    public void onClickSavedUkulele(View view){}
+
 
 
 

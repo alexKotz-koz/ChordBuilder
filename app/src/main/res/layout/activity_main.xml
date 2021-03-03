@@ -32,17 +32,12 @@
         android:text="Guitar" />
 
     <Button
-        android:id="@+id/savedChordsGuitar"
+        android:id="@+id/savedChords"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Saved Guitar Chords" />
-    <Button
-        android:id="@+id/savedChordsUkulele"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Saved Ukulel Chords"
-        />
+        android:onClick="onClickSavedChord"
+        android:text="Saved Chords" />
+
 
 </LinearLayout>
