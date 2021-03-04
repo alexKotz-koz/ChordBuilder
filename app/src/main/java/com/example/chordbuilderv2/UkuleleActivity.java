@@ -33,6 +33,7 @@ public class UkuleleActivity extends AppCompatActivity {
     ArrayList<String> s4Array;
     ArrayList<String> userChordNotes;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +42,8 @@ public class UkuleleActivity extends AppCompatActivity {
         textViewStrings = findViewById(R.id.textViewStringsUke);
         textViewName = findViewById(R.id.textViewNameUke);
         textViewNotes = findViewById(R.id.textViewNotesUke);
-
+        chordBuilderDBHelper = new ChordBuilderDBHelperUkulele(getApplicationContext());
+        sqLiteDatabase = chordBuilderDBHelper.getReadableDatabase();
 
 
         s1Array = new ArrayList<>();
@@ -116,8 +118,6 @@ public class UkuleleActivity extends AppCompatActivity {
         String s4 = String.valueOf(preBuildChord.get(3));
 
 
-        chordBuilderDBHelper = new ChordBuilderDBHelperUkulele(getApplicationContext());
-        sqLiteDatabase = chordBuilderDBHelper.getReadableDatabase();
         cursor = sqLiteDatabase.query("ukuleleChords", new String[]{ "name"}, "string1=? AND string2=? AND string3=? AND string4=?", new String[]{s1,s2,s3,s4}, null, null, null);
         cursor.moveToFirst();
         chordBuilderDBWrapper = new ChordBuilderDBWrapperUkulele(cursor);

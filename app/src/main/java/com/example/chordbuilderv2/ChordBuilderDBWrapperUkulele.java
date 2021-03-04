@@ -10,8 +10,13 @@ public class ChordBuilderDBWrapperUkulele {
     }
 
     public String getName(){
-        int col = cursor.getColumnIndex("name");
-        String name = cursor.getString(col);
+        String name = "";
+        if( cursor != null && cursor.moveToFirst() ){
+            int col = cursor.getColumnIndex("name");
+            name = cursor.getString(col);
+            cursor.close();
+        }
+
         return name;
     }
 
