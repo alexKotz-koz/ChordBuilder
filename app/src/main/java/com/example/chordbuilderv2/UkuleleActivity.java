@@ -41,6 +41,9 @@ public class UkuleleActivity extends AppCompatActivity {
         textViewStrings = findViewById(R.id.textViewStringsUke);
         textViewName = findViewById(R.id.textViewNameUke);
         textViewNotes = findViewById(R.id.textViewNotesUke);
+
+
+
         s1Array = new ArrayList<>();
         s2Array = new ArrayList<>();
         s3Array = new ArrayList<>();
@@ -155,6 +158,7 @@ public class UkuleleActivity extends AppCompatActivity {
                 savedChordAdapter.notifyDataSetChanged();
                 Intent intent1 = new Intent(getApplicationContext(), SavedChordsActivity.class);
                 startActivity(intent1);
+
 
 
                 return true;

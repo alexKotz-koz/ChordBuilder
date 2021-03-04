@@ -3,7 +3,6 @@ package com.example.chordbuilderv2;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.net.sip.SipSession;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,12 +11,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.w3c.dom.Text;
-
 public class SavedChordAdapter extends RecyclerView.Adapter {
     Chord chord;
 
-    ChordBuilderDBContractSaved contractSaved;
+    ChordBuilderDBContractUkulele contractSaved;
     ChordBuilderDBHelperSaved dBHelper;
     SQLiteDatabase sqLiteDatabase;
     Cursor cursor;
@@ -26,7 +23,7 @@ public class SavedChordAdapter extends RecyclerView.Adapter {
 
     public SavedChordAdapter(Context context){
         this.context = context;
-        contractSaved = new ChordBuilderDBContractSaved();
+        contractSaved = new ChordBuilderDBContractUkulele();
         dBHelper = new ChordBuilderDBHelperSaved(context);
         sqLiteDatabase = dBHelper.getReadableDatabase();
         cursor = sqLiteDatabase.query("userChords", new String[]{"_id", "instrument", "chordName","fingering","chordNotes"}, null,null,null,null, null,null);

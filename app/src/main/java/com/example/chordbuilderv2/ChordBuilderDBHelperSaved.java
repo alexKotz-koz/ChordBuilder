@@ -14,8 +14,7 @@ public class ChordBuilderDBHelperSaved extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
-        String userCreateQuery = "CREATE TABLE userChords (_id INTEGER PRIMARY KEY, instrument TEXT, chordName TEXT, fingering TEXT, chordNotes TEXT)";
-        sqLiteDatabase.execSQL(userCreateQuery);
+
     }
 
     @Override

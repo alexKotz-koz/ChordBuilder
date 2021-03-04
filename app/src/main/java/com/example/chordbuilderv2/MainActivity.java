@@ -13,26 +13,21 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-
-    ChordBuilderDBHelperSaved chordDatabaseHelper;
     private Handler mainHandler;
     Button ukuleleButtonMain;
     Button guitarButtonMain;
     Menu mainMenu;
-    ChordBuilderDBHelperSaved chordBuilderDBHelperSaved;
+
     ChordBuilderDBHelperUkulele chordBuilderDBHelperUkulele;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        chordDatabaseHelper = new ChordBuilderDBHelperSaved(getApplicationContext());
-        chordDatabaseHelper.getReadableDatabase();
+        chordBuilderDBHelperUkulele = new ChordBuilderDBHelperUkulele(getApplicationContext());
+        chordBuilderDBHelperUkulele.getReadableDatabase();
         ukuleleButtonMain = findViewById(R.id.buttonUkulele);
         guitarButtonMain = findViewById(R.id.buttonGuitar);
-        chordBuilderDBHelperSaved = new ChordBuilderDBHelperSaved(getApplicationContext());
-        chordBuilderDBHelperUkulele = new ChordBuilderDBHelperUkulele(getApplicationContext());
-
     }
     public void onClickUkulele(View view){
         Intent intent = new Intent(getApplicationContext(), GUIGridUkulele.class);
