@@ -31,6 +31,7 @@ public class UkuleleActivity extends AppCompatActivity {
     ArrayList<String> s2Array;
     ArrayList<String> s3Array;
     ArrayList<String> s4Array;
+    ArrayList<String> userChordNotes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,10 @@ public class UkuleleActivity extends AppCompatActivity {
         textViewStrings = findViewById(R.id.textViewStringsUke);
         textViewName = findViewById(R.id.textViewNameUke);
         textViewNotes = findViewById(R.id.textViewNotesUke);
+        s1Array = new ArrayList<>();
+        s2Array = new ArrayList<>();
+        s3Array = new ArrayList<>();
+        s4Array = new ArrayList<>();
 
         s1Array.add(0,"G");
         s1Array.add(1,"G#/Ab");
@@ -54,8 +59,49 @@ public class UkuleleActivity extends AppCompatActivity {
         s1Array.add(10,"F");
         s1Array.add(11,"F#/Gb");
         s1Array.add(12,"Ghigh");
-        //add s2 s3 and s4 for chord notes
-        //add fingering textView
+
+        s2Array.add(0,"C");
+        s2Array.add(1,"C#/Db");
+        s2Array.add(2,"D");
+        s2Array.add(3,"D#/Eb");
+        s2Array.add(4,"E");
+        s2Array.add(5,"F");
+        s2Array.add(6,"F#/Gb");
+        s2Array.add(7,"G");
+        s2Array.add(8, "G#/Ab");
+        s2Array.add(9,"A");
+        s2Array.add(10,"A#/Bb");
+        s2Array.add(11,"B");
+        s2Array.add(12,"Chigh");
+
+        s3Array.add(0,"E");
+        s3Array.add(1,"F");
+        s3Array.add(2,"F#/Gb");
+        s3Array.add(3,"G");
+        s3Array.add(4, "G#/Ab");
+        s3Array.add(5,"A");
+        s3Array.add(6,"A#/Bb");
+        s3Array.add(7,"B");
+        s3Array.add(8,"C");
+        s3Array.add(9,"C#/Db");
+        s3Array.add(10,"D");
+        s3Array.add(11,"D#/Eb");
+        s3Array.add(12,"Ehigh");
+
+        s4Array.add(0,"A");
+        s4Array.add(1,"A#/Bb");
+        s4Array.add(2,"B");
+        s4Array.add(3,"C");
+        s4Array.add(4,"C#/Db");
+        s4Array.add(5,"D");
+        s4Array.add(6,"D#/Eb");
+        s4Array.add(7,"E");
+        s4Array.add(8,"F");
+        s4Array.add(9,"F#/Gb");
+        s4Array.add(10,"G");
+        s4Array.add(11,"G#/Ab");
+        s4Array.add(12,"A");
+
 
 
 
@@ -66,7 +112,6 @@ public class UkuleleActivity extends AppCompatActivity {
         String s3 = String.valueOf(preBuildChord.get(2));
         String s4 = String.valueOf(preBuildChord.get(3));
 
-        System.out.println(s1 + s2 + s3 + s4);
 
         chordBuilderDBHelper = new ChordBuilderDBHelperUkulele(getApplicationContext());
         sqLiteDatabase = chordBuilderDBHelper.getReadableDatabase();
