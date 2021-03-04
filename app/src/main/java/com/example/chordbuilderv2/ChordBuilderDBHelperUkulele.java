@@ -4,10 +4,10 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class ChordBuilderDBHelper extends SQLiteOpenHelper {
+public class ChordBuilderDBHelperUkulele extends SQLiteOpenHelper {
     public static final String DB_NAME = "ukuleleChords.sqlite";
     public static final int DB_VERSION = 1;
-    public ChordBuilderDBHelper(Context context) {
+    public ChordBuilderDBHelperUkulele(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
 
@@ -15,7 +15,6 @@ public class ChordBuilderDBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String query = "CREATE TABLE ukuleleChords (_id INTEGER PRIMARY KEY, name TEXT, string1 INTEGER, string2 INTEGER, string3 INTEGER, string4 INTEGER )";
         sqLiteDatabase.execSQL(query);
-
         String insertQuery = "INSERT INTO ukuleleChords\n" +
                 "\t\t(name, string1, string2, string3, string4)\n" +
                 "\tVALUES\n" +
@@ -128,9 +127,6 @@ public class ChordBuilderDBHelper extends SQLiteOpenHelper {
                 "\t\t(\"Bmaj7\", 3, 3 ,2, 2),\n" +
                 "\t\t(\"B9\", 2, 3 ,2, 4);";
         sqLiteDatabase.execSQL(insertQuery);
-
-        String userCreateQuery = "CREATE TABLE userChords (_id INTEGER PRIMARY KEY, instrument TEXT, chordName TEXT, fingering TEXT, chordNotes TEXT)";
-        sqLiteDatabase.execSQL(userCreateQuery);
     }
 
     @Override

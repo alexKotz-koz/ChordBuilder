@@ -2,10 +2,10 @@ package com.example.chordbuilderv2;
 
 import android.database.Cursor;
 
-public class ChordBuilderDBWrapper {
+public class ChordBuilderDBWrapperUkulele {
     private Cursor cursor;
 
-    public ChordBuilderDBWrapper(Cursor cursor){
+    public ChordBuilderDBWrapperUkulele(Cursor cursor){
         this.cursor = cursor;
     }
 
@@ -14,4 +14,5 @@ public class ChordBuilderDBWrapper {
         String name = cursor.getString(col);
         return name;
     }
+
 }

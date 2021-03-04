@@ -32,7 +32,8 @@ public class GuitarActivity extends AppCompatActivity {
     ChordHandlerThreadGuitar chordHandlerThreadGuitar;
     ArrayList<Integer> preBuildChord;
     ArrayList<String> urlArray;
-    ChordBuilderDBHelper chordBuilderDBHelper;
+    ChordBuilderDBHelperSaved chordBuilderDBHelperSaved;
+    SavedChordAdapter savedChordAdapter;
 
     @SuppressLint("HandlerLeak")
     @Override
@@ -46,8 +47,8 @@ public class GuitarActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);
         preBuildChord = (ArrayList<Integer>) getIntent().getSerializableExtra("finalist");
-        chordBuilderDBHelper = new ChordBuilderDBHelper(getApplicationContext());
-        
+        chordBuilderDBHelperSaved = new ChordBuilderDBHelperSaved(getApplicationContext());
+        savedChordAdapter = new SavedChordAdapter(getApplicationContext());
 
          mainHandler = new Handler(){
             @SuppressLint("SetTextI18n")
@@ -110,8 +111,12 @@ public class GuitarActivity extends AppCompatActivity {
                 contentValues.put("chordName",parseChordString);
                 contentValues.put("fingering", parseChordString);
                 contentValues.put("chordNotes", urlArray.get(4));
-                SQLiteDatabase sqLiteDatabase = chordBuilderDBHelper.getWritableDatabase();
+                SQLiteDatabase sqLiteDatabase = chordBuilderDBHelperSaved.getWritableDatabase();
                 sqLiteDatabase.insert("userChords",null,contentValues);
+                savedChordAdapter.notifyDataSetChanged();
+                Intent intent1 = new Intent(getApplicationContext(), SavedChordsActivity.class);
+                startActivity(intent1);
+
 
                 return true;
         }
