@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ChordBuilderV2">
-        <activity android:name=".SavedChordsActivity"/>
+        <activity android:name=".SavedChordSpecificActivity"></activity>
+        <activity android:name=".SavedChordsActivity" />
         <activity android:name=".GUIGridUkulele" />
         <activity android:name=".GUIGridGuitar" />
         <activity android:name=".UkuleleActivity" />

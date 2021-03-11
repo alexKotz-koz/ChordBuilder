@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.AudioRecord;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
@@ -42,11 +43,8 @@ public class MainActivity extends AppCompatActivity {
     public void onClickSavedChord(View view){
         Intent intent = new Intent(getApplicationContext(), SavedChordsActivity.class);
         startActivity(intent);
+
     }
-
-
-
-
 
 
     @Override

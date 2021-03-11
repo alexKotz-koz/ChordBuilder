@@ -32,6 +32,7 @@ public class UkuleleActivity extends AppCompatActivity {
     ArrayList<String> s3Array;
     ArrayList<String> s4Array;
     ArrayList<String> userChordNotes;
+    String notesOfChord;
 
 
     @Override
@@ -116,8 +117,170 @@ public class UkuleleActivity extends AppCompatActivity {
         String s2 = String.valueOf(preBuildChord.get(1));
         String s3 = String.valueOf(preBuildChord.get(2));
         String s4 = String.valueOf(preBuildChord.get(3));
-
-
+        switch (s1){
+            case "0":
+                notesOfChord += s1Array.get(0);
+                break;
+            case "1":
+                notesOfChord += s1Array.get(1);
+                break;
+            case "2":
+                notesOfChord += s1Array.get(2);
+                break;
+            case "3":
+                notesOfChord += s1Array.get(3);
+                break;
+            case "4":
+                notesOfChord += s1Array.get(4);
+                break;
+            case "5":
+                notesOfChord += s1Array.get(5);
+                break;
+            case "6":
+                notesOfChord += s1Array.get(6);
+                break;
+            case "7":
+                notesOfChord += s1Array.get(7);
+                break;
+            case "8":
+                notesOfChord += s1Array.get(8);
+                break;
+            case "9":
+                notesOfChord += s1Array.get(9);
+                break;
+            case "10":
+                notesOfChord += s1Array.get(10);
+                break;
+            case "11":
+                notesOfChord += s1Array.get(11);
+                break;
+            case "12":
+                notesOfChord += s1Array.get(12);
+                break;
+        }
+        switch (s2){
+            case "0":
+                notesOfChord += ", " + s2Array.get(0);
+                break;
+            case "1":
+                notesOfChord += ", " + s2Array.get(1);
+                break;
+            case "2":
+                notesOfChord += ", " + s2Array.get(2);
+                break;
+            case "3":
+                notesOfChord += ", " + s2Array.get(3);
+                break;
+            case "4":
+                notesOfChord += ", " + s2Array.get(4);
+                break;
+            case "5":
+                notesOfChord += ", " + s2Array.get(5);
+                break;
+            case "6":
+                notesOfChord += ", " + s2Array.get(6);
+                break;
+            case "7":
+                notesOfChord += ", " + s2Array.get(7);
+                break;
+            case "8":
+                notesOfChord += ", " + s2Array.get(8);
+                break;
+            case "9":
+                notesOfChord += ", " + s2Array.get(9);
+                break;
+            case "10":
+                notesOfChord += ", " + s2Array.get(10);
+                break;
+            case "11":
+                notesOfChord += ", " + s2Array.get(11);
+                break;
+            case "12":
+                notesOfChord += ", " + s2Array.get(12);
+                break;
+        }
+        switch (s3){
+            case "0":
+                notesOfChord += ", " + s3Array.get(0);
+                break;
+            case "1":
+                notesOfChord += ", " + s3Array.get(1);
+                break;
+            case "2":
+                notesOfChord += ", " + s3Array.get(2);
+                break;
+            case "3":
+                notesOfChord += ", " + s3Array.get(3);
+                break;
+            case "4":
+                notesOfChord += ", " + s3Array.get(4);
+                break;
+            case "5":
+                notesOfChord += ", " + s3Array.get(5);
+                break;
+            case "6":
+                notesOfChord += ", " + s3Array.get(6);
+                break;
+            case "7":
+                notesOfChord += ", " + s3Array.get(7);
+                break;
+            case "8":
+                notesOfChord += ", " + s3Array.get(8);
+                break;
+            case "9":
+                notesOfChord += ", " + s3Array.get(9);
+                break;
+            case "10":
+                notesOfChord += ", " + s3Array.get(10);
+                break;
+            case "11":
+                notesOfChord += ", " + s3Array.get(11);
+                break;
+            case "12":
+                notesOfChord += ", " + s3Array.get(12);
+                break;
+        }
+        switch (s4){
+            case "0":
+                notesOfChord += ", " + s4Array.get(0);
+                break;
+            case "1":
+                notesOfChord += ", " + s4Array.get(1);
+                break;
+            case "2":
+                notesOfChord += ", " + s4Array.get(2);
+                break;
+            case "3":
+                notesOfChord += ", " + s4Array.get(3);
+                break;
+            case "4":
+                notesOfChord += ", " + s4Array.get(4);
+                break;
+            case "5":
+                notesOfChord += ", " + s4Array.get(5);
+                break;
+            case "6":
+                notesOfChord += ", " + s4Array.get(6);
+                break;
+            case "7":
+                notesOfChord += ", " + s4Array.get(7);
+                break;
+            case "8":
+                notesOfChord += ", " + s4Array.get(8);
+                break;
+            case "9":
+                notesOfChord += ", " + s4Array.get(9);
+                break;
+            case "10":
+                notesOfChord += ", " + s4Array.get(10);
+                break;
+            case "11":
+                notesOfChord += ", " + s4Array.get(11);
+                break;
+            case "12":
+                notesOfChord += ", " + s4Array.get(12);
+                break;
+        }
         cursor = sqLiteDatabase.query("ukuleleChords", new String[]{ "name"}, "string1=? AND string2=? AND string3=? AND string4=?", new String[]{s1,s2,s3,s4}, null, null, null);
         cursor.moveToFirst();
         chordBuilderDBWrapper = new ChordBuilderDBWrapperUkulele(cursor);
@@ -129,7 +292,7 @@ public class UkuleleActivity extends AppCompatActivity {
         else{
             textViewStrings.setText("Fingerings: " + s1 + ", " + s2 + ", " + s3 + ", " + s4);
             textViewName.setText("Name: " + chordBuilderDBWrapper.getName());
-            textViewNotes.setText("Notes Go Here");
+            textViewNotes.setText("Notes of Chord: " + notesOfChord);
         }
     }
 
