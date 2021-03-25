@@ -71,8 +71,6 @@ public class GuitarActivity extends AppCompatActivity {
                        for (int i = 0; i < parseChordString.length();i++){
                            if (parseChordString.charAt(2) == ','){
                                textViewName.setText("Chord Name: " + parseChordString.charAt(0));
-                               //textViewName.setText("\tChord Quality: "+ parseChordString.charAt(2));
-
                            }
                            else{
                                textViewName.setText("Chord Name: " + parseChordString);

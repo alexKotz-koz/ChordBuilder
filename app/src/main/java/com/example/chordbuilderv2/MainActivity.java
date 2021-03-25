@@ -39,6 +39,12 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), GUIGridGuitar.class);
         startActivity(intent);
     }
+    public void onClickCF(View view){
+        Intent intent = new Intent(getApplicationContext(), ChordFinderActivity.class);
+        startActivity(intent);
+    }
+
+    /// Check if chords exist in db; if so show button; if not hide buttons
 
     public void onClickSavedChord(View view){
         Intent intent = new Intent(getApplicationContext(), SavedChordsActivity.class);

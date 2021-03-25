@@ -3,7 +3,7 @@
     <string name="submit">submit</string>
     <string name="metronome">Metronome</string>
     <string-array name="notes_array">
-        <item> </item>
+        <item></item>
         <item>C</item>
         <item>C#</item>
         <item>Db</item>
@@ -21,6 +21,11 @@
         <item>A#</item>
         <item>Bb</item>
         <item>B</item>
+    </string-array>
+    <string-array name="quality_array">
+        <item></item>
+        <item>Maj</item>
+        <item>Min</item>
     </string-array>
 
 
