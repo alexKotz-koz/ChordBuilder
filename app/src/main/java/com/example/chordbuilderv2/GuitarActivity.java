@@ -40,10 +40,10 @@ public class GuitarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guitar);
-        textViewStrings = findViewById(R.id.textViewStrings);
-        textViewName = findViewById(R.id.textViewName);
-        textViewChordNotes = findViewById(R.id.textViewChordNotes);
-        textViewFingering = findViewById(R.id.textViewFingering);
+        textViewStrings = findViewById(R.id.textViewStringsCF);
+        textViewName = findViewById(R.id.textViewChordNameCF);
+        textViewChordNotes = findViewById(R.id.textViewChordNotesCF);
+        textViewFingering = findViewById(R.id.textViewFingeringCF);
         progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);
         preBuildChord = (ArrayList<Integer>) getIntent().getSerializableExtra("finalist");

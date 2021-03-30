@@ -12,6 +12,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
@@ -35,22 +37,60 @@ public class ChordFinderActivity extends AppCompatActivity {
     private Handler mainHandler2;
     ChordHandlerThreadGuitarCF chordHandlerThreadGuitarCF;
     ArrayList<String> urlArray;
+    String quality;
+    String root;
 
     @SuppressLint("HandlerLeak")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_chord_finder);
-        spinnerRoot = findViewById(R.id.spinnerRoot);
+        spinnerRoot = (Spinner) findViewById(R.id.spinnerRoot);
         spinnerQuality = findViewById(R.id.spinnerQuality);
         buttonSubmit = findViewById(R.id.buttonCFSubmit);
         progressBar = findViewById(R.id.progressBar2);
         progressBar.setVisibility(View.GONE);
-        String root = String.valueOf(spinnerRoot.getSelectedItem());
-        String quality = String.valueOf(spinnerQuality.getSelectedItem());
-        System.out.println(root + quality);
-        //************************************ Error... cant get values of spinners
-        chord = root + "_"+quality;
+        urlArray = ChordHandlerThreadGuitarCF.getURLArr();
+        String[] rootArray = getResources().getStringArray(R.array.notes_array);
+        String[] qualityArray = getResources().getStringArray(R.array.quality_array);
+
+        ArrayAdapter<String> spinnerRootAdapter = new ArrayAdapter<String>(ChordFinderActivity.this, android.R.layout.simple_list_item_1,rootArray );
+        spinnerRoot.setAdapter(spinnerRootAdapter);
+
+        ArrayAdapter<String> spinnerQualityAdapter = new ArrayAdapter<String>(ChordFinderActivity.this,android.R.layout.simple_list_item_1,qualityArray);
+        spinnerQuality.setAdapter(spinnerQualityAdapter);
+
+
+        spinnerRoot.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                root = spinnerRoot.getSelectedItem().toString();
+                System.out.println("Root: "+root);
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        spinnerQuality.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                quality = spinnerQuality.getSelectedItem().toString();
+                if (quality.equals("Min")){
+                    quality = "m";
+                }
+                System.out.println(quality);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
 
 
         mainHandler2 = new Handler(){
@@ -63,24 +103,9 @@ public class ChordFinderActivity extends AppCompatActivity {
                 else if (msg.what == 2){
                     progressBar.setVisibility(View.GONE);
                     chordHandlerThreadGuitarCF.quit();
-                }
-                else if (msg.what == 3){
-                    progressBar.setVisibility(View.GONE);
-                    urlArray = (ArrayList<String>) msg.obj;
-                    textViewStrings.setText("Strings: " + urlArray.get(0));
-                    textViewFingering.setText("Fingering" + urlArray.get(1));
-                    parseChordString = urlArray.get(2);
-                    System.out.println(parseChordString);
-
-                    /*for (int i = 0; i < parseChordString.length();i++){
-                        if (parseChordString.charAt(2) == ','){
-                            textViewName.setText("Chord Name: " + parseChordString.charAt(0));
-                        }
-                        else{
-                            textViewName.setText("Chord Name: " + parseChordString);
-                        }
-                    }*/
-                    //textViewChordNotes.setText("Chord Notes: " + urlArray.get(4));
+                    Intent intent = new Intent(getApplicationContext(),ChordFinderResultActivity.class);
+                    intent.putExtra("URLOBJECT",urlArray);
+                    startActivity(intent);
                 }
             }
         };
@@ -88,6 +113,13 @@ public class ChordFinderActivity extends AppCompatActivity {
 
     public void getPreBuildChord(){
         System.out.println("Chord: "+chord);
+        if (quality==null || quality.equals("Maj")){
+            chord = root;
+        }else{
+
+            chord = root+"_"+quality.toLowerCase();
+        }
+
         chordHandlerThreadGuitarCF = new ChordHandlerThreadGuitarCF(getApplicationContext(),mainHandler2, chord);
         chordHandlerThreadGuitarCF.start();
         progressBar.setVisibility(View.VISIBLE);
