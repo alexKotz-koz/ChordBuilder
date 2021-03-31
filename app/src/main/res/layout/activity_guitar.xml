@@ -14,25 +14,25 @@
         android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/textViewStrings"
+        android:id="@+id/textViewStringsCF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     <TextView
-        android:id="@+id/textViewFingering"
+        android:id="@+id/textViewFingeringCF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     <TextView
-        android:id="@+id/textViewName"
+        android:id="@+id/textViewChordNameCF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     <TextView
-        android:id="@+id/textViewChordNotes"
+        android:id="@+id/textViewChordNotesCF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />

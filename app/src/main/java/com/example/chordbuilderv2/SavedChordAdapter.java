@@ -3,9 +3,11 @@ package com.example.chordbuilderv2;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.location.GnssAntennaInfo;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,6 +23,14 @@ public class SavedChordAdapter extends RecyclerView.Adapter {
     ChordBuilderDBWrapperSaved wrapperSaved;
     Context context;
 
+    private Listener listener;
+    public static interface Listener{
+        public void onClick (int position);
+    }
+    public void setListener(Listener listener){
+        this.listener = listener;
+    }
+
     public SavedChordAdapter(Context context){
         this.context = context;
         contractSaved = new ChordBuilderDBContractUkulele();
@@ -35,7 +45,7 @@ public class SavedChordAdapter extends RecyclerView.Adapter {
         public TextView textViewChordFingeringText;
         public TextView textViewChordNoteText;
         public TextView textViewInstrumentText;
-
+        public LinearLayout linearLayout;
 
         public ChordViewHolder(View view) {
             super(view);
@@ -43,7 +53,7 @@ public class SavedChordAdapter extends RecyclerView.Adapter {
             this.textViewChordFingeringText = view.findViewById(R.id.textViewChordFingeringText);
             this.textViewChordNoteText = view.findViewById(R.id.textViewChordNoteText);
             this.textViewInstrumentText = view.findViewById(R.id.textViewInstrumentText);
-
+            this.linearLayout = view.findViewById(R.id.linearLayoutFrameRecycler);
         }
     }
 
@@ -58,6 +68,7 @@ public class SavedChordAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
 
         ChordViewHolder chordViewHolder = (ChordViewHolder) holder;
+        LinearLayout linearLayout = ((ChordViewHolder) holder).linearLayout ;
         wrapperSaved = new ChordBuilderDBWrapperSaved(cursor);
 
         cursor.moveToPosition(position);
@@ -70,6 +81,14 @@ public class SavedChordAdapter extends RecyclerView.Adapter {
         chordViewHolder.textViewChordNameText.setText(chordName);
         chordViewHolder.textViewChordFingeringText.setText(fingering);
         chordViewHolder.textViewInstrumentText.setText(instrument);
+
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onClick(position);
+            }
+        });
+
 
     }
 
