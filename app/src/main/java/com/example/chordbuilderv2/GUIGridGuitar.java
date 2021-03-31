@@ -26,12 +26,12 @@ public class GUIGridGuitar extends AppCompatActivity {
     ArrayList<String> listG = new ArrayList<>();
     ArrayList<String> listB = new ArrayList<>();
     ArrayList<String> listEh = new ArrayList<>();
-    ArrayAdapter<String> adapterE;
-    ArrayAdapter<String> adapterA;
-    ArrayAdapter<String> adapterD;
-    ArrayAdapter<String> adapterG;
-    ArrayAdapter<String> adapterB;
-    ArrayAdapter<String> adapterEh;
+    GUIArrayAdapter adapterE;
+    GUIArrayAdapter adapterA;
+    GUIArrayAdapter adapterD;
+    GUIArrayAdapter adapterG;
+    GUIArrayAdapter adapterB;
+    GUIArrayAdapter adapterEh;
     boolean openE;
     boolean openA;
     boolean openD;
@@ -69,11 +69,7 @@ public class GUIGridGuitar extends AppCompatActivity {
             listEh.add("o");
         }
 
-        adapterE = new ArrayAdapter<>(
-                getApplicationContext(),
-                android.R.layout.simple_list_item_1,
-                listE
-        );
+        adapterE = new GUIArrayAdapter(this, listE);
         listViewE = findViewById(R.id.listViewStringE);
         listViewE.setAdapter(adapterE);
 
@@ -119,11 +115,7 @@ public class GUIGridGuitar extends AppCompatActivity {
             }
         });
 
-        adapterA = new ArrayAdapter<>(
-                getApplicationContext(),
-                android.R.layout.simple_list_item_1,
-                listA
-        );
+        adapterA = new GUIArrayAdapter(this, listA);
         listViewA = findViewById(R.id.listViewStringA);
         listViewA.setAdapter(adapterA);
 
@@ -168,11 +160,7 @@ public class GUIGridGuitar extends AppCompatActivity {
             }
         });
 
-        adapterD = new ArrayAdapter<>(
-                getApplicationContext(),
-                android.R.layout.simple_list_item_1,
-                listD
-        );
+        adapterD = new GUIArrayAdapter(this, listD);
         listViewD = findViewById(R.id.listViewStringD);
         listViewD.setAdapter(adapterD);
 
@@ -217,11 +205,7 @@ public class GUIGridGuitar extends AppCompatActivity {
             }
         });
 
-        adapterG = new ArrayAdapter<>(
-                getApplicationContext(),
-                android.R.layout.simple_list_item_1,
-                listG
-        );
+        adapterG = new GUIArrayAdapter(this, listG);
         listViewG = findViewById(R.id.listViewStringG);
         listViewG.setAdapter(adapterG);
 
@@ -266,11 +250,7 @@ public class GUIGridGuitar extends AppCompatActivity {
             }
         });
 
-        adapterB = new ArrayAdapter<>(
-                getApplicationContext(),
-                android.R.layout.simple_list_item_1,
-                listB
-        );
+        adapterB = new GUIArrayAdapter(this, listB);
         listViewB = findViewById(R.id.listViewStringB);
         listViewB.setAdapter(adapterB);
 
@@ -316,11 +296,7 @@ public class GUIGridGuitar extends AppCompatActivity {
         });
 
 
-        adapterEh = new ArrayAdapter<>(
-                getApplicationContext(),
-                android.R.layout.simple_list_item_1,
-                listEh
-        );
+        adapterEh = new GUIArrayAdapter(this, listEh);
         listViewEh = findViewById(R.id.listViewStringEh);
         listViewEh.setAdapter(adapterEh);
 

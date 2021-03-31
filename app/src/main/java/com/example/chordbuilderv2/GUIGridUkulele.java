@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,16 +23,17 @@ public class GUIGridUkulele extends AppCompatActivity {
     ArrayList<String> listC = new ArrayList<>();
     ArrayList<String> listE = new ArrayList<>();
     ArrayList<String> listA = new ArrayList<>();
-    ArrayAdapter<String> adapterG;
-    ArrayAdapter<String> adapterC;
-    ArrayAdapter<String> adapterE;
-    ArrayAdapter<String> adapterA;
+    GUIArrayAdapter adapterG;
+    GUIArrayAdapter adapterC;
+    GUIArrayAdapter adapterE;
+    GUIArrayAdapter adapterA;
     boolean openG;
     boolean openC;
     boolean openE;
     boolean openA;
 
     ArrayList<String> finalList = new ArrayList<>();
+    ImageView imageView;
 
 
     @Override
@@ -55,11 +57,7 @@ public class GUIGridUkulele extends AppCompatActivity {
             listA.add("o");
         }
 
-        adapterG = new ArrayAdapter<>(
-                getApplicationContext(),
-                android.R.layout.simple_list_item_1,
-                listG
-        );
+        adapterG = new GUIArrayAdapter(this, listG);
         listViewG = findViewById(R.id.listViewStringG);
         listViewG.setAdapter(adapterG);
 
@@ -73,6 +71,7 @@ public class GUIGridUkulele extends AppCompatActivity {
                     listG.set(i, "o");
                     openG = true;
                     finalList.set(0, "0");
+
                 }
                 else{
                     openG = false;
@@ -83,11 +82,7 @@ public class GUIGridUkulele extends AppCompatActivity {
             }
         });
 
-        adapterC = new ArrayAdapter<>(
-                getApplicationContext(),
-                android.R.layout.simple_list_item_1,
-                listC
-        );
+        adapterC = new GUIArrayAdapter(this, listC);
         listViewC = findViewById(R.id.listViewStringC);
         listViewC.setAdapter(adapterC);
 
@@ -111,11 +106,7 @@ public class GUIGridUkulele extends AppCompatActivity {
             }
         });
 
-        adapterE = new ArrayAdapter<>(
-                getApplicationContext(),
-                android.R.layout.simple_list_item_1,
-                listE
-        );
+        adapterE = new GUIArrayAdapter(this, listE);
         listViewE = findViewById(R.id.listViewStringE);
         listViewE.setAdapter(adapterE);
 
@@ -139,11 +130,7 @@ public class GUIGridUkulele extends AppCompatActivity {
             }
         });
 
-        adapterA = new ArrayAdapter<>(
-                getApplicationContext(),
-                android.R.layout.simple_list_item_1,
-                listA
-        );
+        adapterA = new GUIArrayAdapter(this, listA);
         listViewA = findViewById(R.id.listViewStringA);
         listViewA.setAdapter(adapterA);
 
