@@ -7,7 +7,7 @@
         android:title="Home"
         app:showAsAction="ifRoom|withText" />
     <item
-        android:id="@+id/item_delete"
+        android:id="@+id/item_del"
         android:title="Delete"
         app:showAsAction="ifRoom|withText" />
 </menu>

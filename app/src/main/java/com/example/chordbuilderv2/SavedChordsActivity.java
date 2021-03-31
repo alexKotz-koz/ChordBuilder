@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class SavedChordsActivity extends AppCompatActivity implements SavedChordAdapter.Listener{
     SavedChordAdapter savedChordAdapter;
@@ -19,12 +20,15 @@ public class SavedChordsActivity extends AppCompatActivity implements SavedChord
     LinearLayoutManager linearLayoutManager;
     ChordBuilderDBHelperSaved chordBuilderDBHelperSaved;
     ChordBuilderDBWrapperSaved wrapperSaved;
+    public static boolean currentActivitySavedChords = false;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saved_guitar_chords);
+        currentActivitySavedChords = true;
+        MainActivity.checkActivityMain = false;
         savedChordAdapter =  new SavedChordAdapter(getApplicationContext());
         savedChordAdapter.setListener(this);
         recyclerView = findViewById(R.id.recyclerViewSavedChords);
@@ -34,6 +38,23 @@ public class SavedChordsActivity extends AppCompatActivity implements SavedChord
         chordBuilderDBHelperSaved = new ChordBuilderDBHelperSaved(getApplicationContext());
         chordBuilderDBHelperSaved.getReadableDatabase();
 
+        Cursor cursor;
+        SQLiteDatabase sqLiteDatabase = chordBuilderDBHelperSaved.getReadableDatabase();
+        cursor = sqLiteDatabase.query("userChords",new String[]{"_id","instrument","chordName","fingering","chordNotes"},null,null,null,null,null);
+        cursor.moveToFirst();
+        if (cursor.getCount() == 0){
+            if (!currentActivitySavedChords && MainActivity.checkActivityMain){
+                System.out.println("in specific");
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+            else {
+                System.out.println("in Main");
+                Toast.makeText(getApplicationContext(),"No Saved Chords",Toast.LENGTH_LONG).show();
+                finish();
+            }
+        }
+        cursor.close();
 
     }
 

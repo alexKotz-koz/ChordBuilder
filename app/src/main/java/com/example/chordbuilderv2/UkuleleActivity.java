@@ -318,7 +318,8 @@ public class UkuleleActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
                 return true;
-            case R.id.item_delete:
+            case R.id.item_del:
+
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("instrument", "ukulele");
                 contentValues.put("chordName", chordBuilderDBWrapper.getName());

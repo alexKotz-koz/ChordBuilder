@@ -3,7 +3,6 @@ package com.example.chordbuilderv2;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -68,14 +67,23 @@ public class SavedChordSpecificActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
                 return true;
-            case (R.id.item_delete):
-                SQLiteDatabase sqLiteDatabase = chordBuilderDBHelperSaved.getWritableDatabase();
-                sqLiteDatabase.delete(DATABASE_TABLE, "instrument=? and chordName=?",new String[]{instrument,chordName});
-                savedChordAdapter.notifyDataSetChanged();
-                sqLiteDatabase.close();
-                Intent intent1 = new Intent(getApplicationContext(), SavedChordsActivity.class);
-                startActivity(intent1);
-
+            case (R.id.item_del):
+                Cursor cursor;
+                SQLiteDatabase sqLiteDatabase2 = chordBuilderDBHelperSaved.getReadableDatabase();
+                cursor = sqLiteDatabase2.query("userChords",new String[]{"_id","instrument","chordName","fingering","chordNotes"},null,null,null,null,null);
+                cursor.moveToFirst();
+                if (cursor.getCount() <= 0){
+                    System.out.println("Inhere");
+                    finish();
+                }
+                else {
+                    SQLiteDatabase sqLiteDatabase = chordBuilderDBHelperSaved.getWritableDatabase();
+                    sqLiteDatabase.delete(DATABASE_TABLE, "instrument=? and chordName=?", new String[]{instrument, chordName});
+                    savedChordAdapter.notifyDataSetChanged();
+                    sqLiteDatabase.close();
+                    Intent intent1 = new Intent(getApplicationContext(), SavedChordsActivity.class);
+                    startActivity(intent1);
+                }
 
 
         }

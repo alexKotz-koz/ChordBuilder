@@ -22,7 +22,6 @@ import java.util.ArrayList;
 public class GuitarActivity extends AppCompatActivity {
 
     TextView textViewStrings;
-    TextView textViewVoicing;
     TextView textViewName;
     TextView textViewChordNotes;
     TextView textViewFingering;
@@ -40,8 +39,8 @@ public class GuitarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guitar);
-        textViewStrings = findViewById(R.id.textViewStringsCF);
         textViewName = findViewById(R.id.textViewChordNameCF);
+        textViewStrings = findViewById(R.id.textViewStringsCF);
         textViewChordNotes = findViewById(R.id.textViewChordNotesCF);
         textViewFingering = findViewById(R.id.textViewFingeringCF);
         progressBar = findViewById(R.id.progressBar);
@@ -67,6 +66,7 @@ public class GuitarActivity extends AppCompatActivity {
                        textViewStrings.setText("Strings: " + urlArray.get(0));
                        textViewFingering.setText("Fingering" + urlArray.get(1));
                        parseChordString = urlArray.get(2);
+
 
                        for (int i = 0; i < parseChordString.length();i++){
                            if (parseChordString.charAt(2) == ','){
@@ -103,15 +103,16 @@ public class GuitarActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
                 return true;
-            case R.id.item_delete:
+            case R.id.item_del:
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("instrument", "guitar");
                 contentValues.put("chordName",parseChordString);
-                contentValues.put("fingering", parseChordString);
+                contentValues.put("fingering", urlArray.get(1));
                 contentValues.put("chordNotes", urlArray.get(4));
                 SQLiteDatabase sqLiteDatabase = chordBuilderDBHelperSaved.getWritableDatabase();
                 sqLiteDatabase.insert("userChords",null,contentValues);
                 savedChordAdapter.notifyDataSetChanged();
+                sqLiteDatabase.close();
                 Intent intent1 = new Intent(getApplicationContext(), SavedChordsActivity.class);
                 startActivity(intent1);
 

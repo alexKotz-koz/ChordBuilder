@@ -33,7 +33,6 @@ public class ChordFinderResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chord_finder_result);
         textViewChordNotesCF = findViewById(R.id.textViewChordNotesCF);
         textViewChordNameCF = findViewById(R.id.textViewChordNameCF);
-        textViewStringsCF = findViewById(R.id.textViewStringsCF);
         textViewFingeringCF = findViewById(R.id.textViewFingeringCF);
 
         chordBuilderDBHelperSaved = new ChordBuilderDBHelperSaved(getApplicationContext());
@@ -65,7 +64,7 @@ public class ChordFinderResultActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
                 return true;
-            case R.id.item_delete:
+            case R.id.item_del:
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("instrument", "guitar");
                 contentValues.put("chordName", chordName);

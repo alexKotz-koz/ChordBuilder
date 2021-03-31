@@ -20,13 +20,16 @@ public class MainActivity extends AppCompatActivity {
     Button ukuleleButtonMain;
     Button guitarButtonMain;
     Menu mainMenu;
+
+    public static boolean checkActivityMain = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ukuleleButtonMain = findViewById(R.id.buttonUkulele);
         guitarButtonMain = findViewById(R.id.buttonGuitar);
-
+        checkActivityMain = true;
     }
     public void onClickUkulele(View view){
         Intent intent = new Intent(getApplicationContext(), GUIGridUkulele.class);
