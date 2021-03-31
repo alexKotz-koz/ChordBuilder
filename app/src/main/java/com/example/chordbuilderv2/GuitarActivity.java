@@ -103,7 +103,7 @@ public class GuitarActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
                 return true;
-            case R.id.item_save:
+            case R.id.item_delete:
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("instrument", "guitar");
                 contentValues.put("chordName",parseChordString);

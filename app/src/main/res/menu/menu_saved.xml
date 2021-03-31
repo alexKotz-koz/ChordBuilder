@@ -8,14 +8,6 @@
         app:showAsAction="ifRoom|withText" />
     <item
         android:id="@+id/item_delete"
-        android:title="Save"
-        app:showAsAction="ifRoom|withText" />
-    <item
-        android:id="@+id/item_metronome"
-        android:title="@string/metronome"
-        app:showAsAction="ifRoom|withText" />
-    <item
-        android:id="@+id/item_instruction"
-        android:title="Instructions"
+        android:title="Delete"
         app:showAsAction="ifRoom|withText" />
 </menu>

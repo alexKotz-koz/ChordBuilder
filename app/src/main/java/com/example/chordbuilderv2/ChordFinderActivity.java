@@ -66,7 +66,6 @@ public class ChordFinderActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 root = spinnerRoot.getSelectedItem().toString();
-                System.out.println("Root: "+root);
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -81,7 +80,6 @@ public class ChordFinderActivity extends AppCompatActivity {
                 if (quality.equals("Min")){
                     quality = "m";
                 }
-                System.out.println(quality);
             }
 
             @Override

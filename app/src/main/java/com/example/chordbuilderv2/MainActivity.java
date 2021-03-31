@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.media.AudioRecord;
 import android.os.Bundle;
 import android.os.Handler;
@@ -18,17 +20,13 @@ public class MainActivity extends AppCompatActivity {
     Button ukuleleButtonMain;
     Button guitarButtonMain;
     Menu mainMenu;
-
-    ChordBuilderDBHelperUkulele chordBuilderDBHelperUkulele;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        chordBuilderDBHelperUkulele = new ChordBuilderDBHelperUkulele(getApplicationContext());
-        chordBuilderDBHelperUkulele.getReadableDatabase();
         ukuleleButtonMain = findViewById(R.id.buttonUkulele);
         guitarButtonMain = findViewById(R.id.buttonGuitar);
+
     }
     public void onClickUkulele(View view){
         Intent intent = new Intent(getApplicationContext(), GUIGridUkulele.class);
@@ -44,9 +42,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    /// Check if chords exist in db; if so show button; if not hide buttons
 
     public void onClickSavedChord(View view){
+
         Intent intent = new Intent(getApplicationContext(), SavedChordsActivity.class);
         startActivity(intent);
 

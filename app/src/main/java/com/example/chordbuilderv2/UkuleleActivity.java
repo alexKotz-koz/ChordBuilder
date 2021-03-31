@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -31,7 +30,6 @@ public class UkuleleActivity extends AppCompatActivity {
     ArrayList<String> s2Array;
     ArrayList<String> s3Array;
     ArrayList<String> s4Array;
-    ArrayList<String> userChordNotes;
     String chordNotes = "";
     String fingering;
 
@@ -320,7 +318,7 @@ public class UkuleleActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
                 return true;
-            case R.id.item_save:
+            case R.id.item_delete:
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("instrument", "ukulele");
                 contentValues.put("chordName", chordBuilderDBWrapper.getName());

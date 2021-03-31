@@ -40,7 +40,7 @@ public class ChordFinderResultActivity extends AppCompatActivity {
         savedChordAdapter = new SavedChordAdapter(getApplicationContext());
 
         urlArray = getIntent().getStringArrayListExtra("URLOBJECT");
-        System.out.println("FINAL:     "+urlArray);
+
 
         fingering = urlArray.get(1);
         chordName = urlArray.get(2);
@@ -65,7 +65,7 @@ public class ChordFinderResultActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
                 return true;
-            case R.id.item_save:
+            case R.id.item_delete:
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("instrument", "guitar");
                 contentValues.put("chordName", chordName);
