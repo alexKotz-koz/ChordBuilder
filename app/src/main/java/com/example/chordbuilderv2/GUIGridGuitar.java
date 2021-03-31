@@ -345,17 +345,6 @@ public class GUIGridGuitar extends AppCompatActivity {
 
 
     public void submitClick(View view) {
-        StringBuilder output = new StringBuilder();
-        for(int i=0; i<finalList.size(); i++){
-            output.append(finalList.get(i)).append(" ");
-        }
-        textView.setText(output.toString());
-        String string1 = finalList.get(0);
-        String string2 = finalList.get(1);
-        String string3 = finalList.get(2);
-        String string4 = finalList.get(3);
-        String string5 = finalList.get(4);
-        String string6 = finalList.get(5);
         Intent intent = new Intent(getApplicationContext(),GuitarActivity.class);
         intent.putExtra("finalist",finalList);
         startActivity(intent);
