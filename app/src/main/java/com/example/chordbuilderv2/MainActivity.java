@@ -6,23 +6,30 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.media.AudioRecord;
+import android.content.res.AssetFileDescriptor;
+import android.media.MediaPlayer;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+import android.widget.EditText;
+
+import java.io.IOException;
+import java.util.Timer;
 
 public class MainActivity extends AppCompatActivity {
     private Handler mainHandler;
     Button ukuleleButtonMain;
     Button guitarButtonMain;
     Menu mainMenu;
+    MediaPlayer mp;
+    public static String userInputBPM;
+
 
     public static boolean checkActivityMain = false;
 
@@ -33,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         ukuleleButtonMain = findViewById(R.id.buttonUkulele);
         guitarButtonMain = findViewById(R.id.buttonGuitar);
         checkActivityMain = true;
+        mp = MetronomeMediaPlayer.getMediaPlayer();
     }
     public void onClickUkulele(View view){
         Intent intent = new Intent(getApplicationContext(), GUIGridUkulele.class);
@@ -85,8 +93,44 @@ public class MainActivity extends AppCompatActivity {
 
                 builder.show();
                 break;
+            case R.id.item_metronome:
+                Intent intent1 = new Intent(getApplicationContext(),MetronomeActivity.class);
+                startActivity(intent1);
+               /* AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
+                builder1.setTitle("METRONOME");
+                final View customLayout
+                        = getLayoutInflater()
+                        .inflate(
+                                R.layout.layout_custom_dialog_metronome,
+                                null);
+                builder1.setView(customLayout);
+                builder1.setPositiveButton(
+                                "OK",
+                                new DialogInterface.OnClickListener() {
+
+                                    @Override
+                                    public void onClick(
+                                            DialogInterface dialog,
+                                            int which)
+                                    {
+
+                                        // send data from the
+                                        // AlertDialog to the Activity
+                                        EditText editText
+                                                = customLayout
+                                                .findViewById(
+                                                        R.id.editTextNumberMetro);
+                                        userInputBPM=editText.getText().toString();
+                                    }
+                                });*/
+                return true;
 
         }
         return super.onOptionsItemSelected(item);
     }
+
+
+
 }
+
+
