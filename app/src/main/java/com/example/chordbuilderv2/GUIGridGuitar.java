@@ -6,9 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -40,15 +38,12 @@ public class GUIGridGuitar extends AppCompatActivity {
     boolean openEh;
 
     ArrayList<String> finalList = new ArrayList<>();
-    TextView textView;
     int state = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_g_u_i_grid_guitar);
-        textView = findViewById(R.id.textView);
-
         openE = true;
         openA = true;
         openD = true;
@@ -70,7 +65,7 @@ public class GUIGridGuitar extends AppCompatActivity {
         }
 
         adapterE = new GUIArrayAdapter(this, listE);
-        listViewE = findViewById(R.id.listViewStringE);
+        listViewE = findViewById(R.id.listViewStringESaved);
         listViewE.setAdapter(adapterE);
 
         listViewE.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -116,7 +111,7 @@ public class GUIGridGuitar extends AppCompatActivity {
         });
 
         adapterA = new GUIArrayAdapter(this, listA);
-        listViewA = findViewById(R.id.listViewStringA);
+        listViewA = findViewById(R.id.listViewStringASaved);
         listViewA.setAdapter(adapterA);
 
         listViewA.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -206,7 +201,7 @@ public class GUIGridGuitar extends AppCompatActivity {
         });
 
         adapterG = new GUIArrayAdapter(this, listG);
-        listViewG = findViewById(R.id.listViewStringG);
+        listViewG = findViewById(R.id.listViewStringGSaved);
         listViewG.setAdapter(adapterG);
 
         listViewG.setOnItemClickListener(new AdapterView.OnItemClickListener() {

@@ -33,7 +33,7 @@
         android:orientation="horizontal">
 
         <ListView
-            android:id="@+id/listViewStringG"
+            android:id="@+id/listViewStringGSaved"
             android:layout_width="100dip"
             android:layout_height="match_parent"
             android:layout_weight="1">
@@ -41,19 +41,19 @@
         </ListView>
 
         <ListView
-            android:id="@+id/listViewStringC"
+            android:id="@+id/listViewStringCSaved"
             android:layout_width="100dip"
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
         <ListView
-            android:id="@+id/listViewStringE"
+            android:id="@+id/listViewStringESaved"
             android:layout_width="100dip"
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
         <ListView
-            android:id="@+id/listViewStringA"
+            android:id="@+id/listViewStringASaved"
             android:layout_width="100dip"
             android:layout_height="match_parent"
             android:layout_weight="1" />
@@ -66,9 +66,4 @@
         android:onClick="submitClick"
         android:text="submit" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
 </LinearLayout>

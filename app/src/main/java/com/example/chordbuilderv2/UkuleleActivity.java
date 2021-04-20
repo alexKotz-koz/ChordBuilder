@@ -319,7 +319,6 @@ public class UkuleleActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             case R.id.item_del:
-
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("instrument", "ukulele");
                 contentValues.put("chordName", chordBuilderDBWrapper.getName());
@@ -330,9 +329,6 @@ public class UkuleleActivity extends AppCompatActivity {
                 savedChordAdapter.notifyDataSetChanged();
                 Intent intent1 = new Intent(getApplicationContext(), SavedChordsActivity.class);
                 startActivity(intent1);
-
-
-
                 return true;
         }
         return super.onOptionsItemSelected(item);

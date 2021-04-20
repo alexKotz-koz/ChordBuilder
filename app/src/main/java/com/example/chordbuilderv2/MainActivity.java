@@ -96,33 +96,6 @@ public class MainActivity extends AppCompatActivity {
             case R.id.item_metronome:
                 Intent intent1 = new Intent(getApplicationContext(),MetronomeActivity.class);
                 startActivity(intent1);
-               /* AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
-                builder1.setTitle("METRONOME");
-                final View customLayout
-                        = getLayoutInflater()
-                        .inflate(
-                                R.layout.layout_custom_dialog_metronome,
-                                null);
-                builder1.setView(customLayout);
-                builder1.setPositiveButton(
-                                "OK",
-                                new DialogInterface.OnClickListener() {
-
-                                    @Override
-                                    public void onClick(
-                                            DialogInterface dialog,
-                                            int which)
-                                    {
-
-                                        // send data from the
-                                        // AlertDialog to the Activity
-                                        EditText editText
-                                                = customLayout
-                                                .findViewById(
-                                                        R.id.editTextNumberMetro);
-                                        userInputBPM=editText.getText().toString();
-                                    }
-                                });*/
                 return true;
 
         }

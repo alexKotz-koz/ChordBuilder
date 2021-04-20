@@ -74,6 +74,9 @@ public class SavedChordsActivity extends AppCompatActivity implements SavedChord
         cursor.moveToPosition(position);
         wrapperSaved = new ChordBuilderDBWrapperSaved(cursor);
 
+        instrument = wrapperSaved.getInstrument();
+        intent.putExtra("INSTRUMENT",instrument);
+
         chordName=wrapperSaved.getChordName();
         intent.putExtra("NAME",chordName);
 

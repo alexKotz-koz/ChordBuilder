@@ -10,7 +10,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class SavedChordSpecificActivity extends AppCompatActivity {
     TextView textViewSavedSpecificInstrument;
@@ -22,11 +25,32 @@ public class SavedChordSpecificActivity extends AppCompatActivity {
 
     private static final String DATABASE_TABLE ="userChords";
 
+    GUIArrayAdapter adapterG;
+    GUIArrayAdapter adapterC;
+    GUIArrayAdapter adapterE;
+    GUIArrayAdapter adapterA;
+
+    ListView listViewGSaved;
+    ListView listViewCSaved;
+    ListView listViewESaved;
+    ListView listViewASaved;
+
+    ArrayList<String> listG = new ArrayList<>();
+    ArrayList<String> listC = new ArrayList<>();
+    ArrayList<String> listE = new ArrayList<>();
+    ArrayList<String> listA = new ArrayList<>();
+
     String instrument;
     String chordName;
     String chordNotes;
     String chordFingering;
     int position;
+
+    int noteForGString;
+    int noteForCString;
+    int noteForEString;
+    int noteForAString;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +60,12 @@ public class SavedChordSpecificActivity extends AppCompatActivity {
         textViewSavedSpecificChordName = findViewById(R.id.textViewSavedSpecificChordName);
         textViewSavedSpecificChordFingering = findViewById(R.id.textViewSavedSpecificChordFingering);
         textViewSavedSpecificChordNotes = findViewById(R.id.textViewSavedSpecificChordNotes);
+
+        listViewASaved = findViewById(R.id.listViewStringASaved);
+        listViewCSaved = findViewById(R.id.listViewStringCSaved);
+        listViewESaved = findViewById(R.id.listViewStringESaved);
+        listViewGSaved = findViewById(R.id.listViewStringGSaved);
+
 
         savedChordAdapter =  new SavedChordAdapter(getApplicationContext());
         chordBuilderDBHelperSaved = new ChordBuilderDBHelperSaved(getApplicationContext());
@@ -51,6 +81,40 @@ public class SavedChordSpecificActivity extends AppCompatActivity {
         textViewSavedSpecificChordName.setText(chordName);
         textViewSavedSpecificChordFingering.setText(chordFingering);
         textViewSavedSpecificChordNotes.setText(chordNotes);
+
+        if (instrument.equals("ukulele")) {
+            noteForGString = Integer.parseInt(String.valueOf(chordFingering.charAt(0))) - 1;
+            noteForCString = Integer.parseInt(String.valueOf(chordFingering.charAt(3))) - 1;
+            noteForEString = Integer.parseInt(String.valueOf(chordFingering.charAt(6))) - 1;
+            noteForAString = Integer.parseInt(String.valueOf(chordFingering.charAt(9))) - 1;
+
+            for (int i = 0; i < 5; i++) {
+                listG.add("o");
+                listC.add("o");
+                listE.add("o");
+                listA.add("o");
+            }
+            if (noteForGString > -1) {
+                listG.set(noteForGString, "p");
+            }
+            adapterG = new GUIArrayAdapter(this, listG);
+            listViewGSaved.setAdapter(adapterG);
+
+            adapterE = new GUIArrayAdapter(this, listE);
+            listViewESaved.setAdapter(adapterE);
+
+            adapterC = new GUIArrayAdapter(this, listC);
+            listViewCSaved.setAdapter(adapterC);
+
+            adapterA = new GUIArrayAdapter(this, listA);
+            listViewASaved.setAdapter(adapterA);
+        } else if(instrument.equals("guitar")){
+            Intent intent = new Intent(getApplicationContext(),SavedChordSpecificActivityGuitar.class);
+            intent.putExtra("NAME",chordName);
+            intent.putExtra("FINGERING",chordFingering);
+            intent.putExtra("NOTES",chordNotes);
+        }
+
 
     }
     @Override
