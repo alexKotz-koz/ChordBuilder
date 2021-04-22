@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     Button ukuleleButtonMain;
     Button guitarButtonMain;
     Menu mainMenu;
-    MediaPlayer mp;
+
     public static String userInputBPM;
 
 
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         ukuleleButtonMain = findViewById(R.id.buttonUkulele);
         guitarButtonMain = findViewById(R.id.buttonGuitar);
         checkActivityMain = true;
-        mp = MetronomeMediaPlayer.getMediaPlayer();
+
     }
     public void onClickUkulele(View view){
         Intent intent = new Intent(getApplicationContext(), GUIGridUkulele.class);
@@ -93,10 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
                 builder.show();
                 break;
-            case R.id.item_metronome:
-                Intent intent1 = new Intent(getApplicationContext(),MetronomeActivity.class);
-                startActivity(intent1);
-                return true;
+
 
         }
         return super.onOptionsItemSelected(item);

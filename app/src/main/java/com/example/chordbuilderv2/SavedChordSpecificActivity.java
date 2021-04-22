@@ -88,6 +88,8 @@ public class SavedChordSpecificActivity extends AppCompatActivity {
             noteForEString = Integer.parseInt(String.valueOf(chordFingering.charAt(6))) - 1;
             noteForAString = Integer.parseInt(String.valueOf(chordFingering.charAt(9))) - 1;
 
+
+
             for (int i = 0; i < 5; i++) {
                 listG.add("o");
                 listC.add("o");
@@ -113,6 +115,7 @@ public class SavedChordSpecificActivity extends AppCompatActivity {
             intent.putExtra("NAME",chordName);
             intent.putExtra("FINGERING",chordFingering);
             intent.putExtra("NOTES",chordNotes);
+            startActivity(intent);
         }
 
 
