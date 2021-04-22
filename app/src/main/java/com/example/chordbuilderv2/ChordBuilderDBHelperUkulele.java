@@ -24,9 +24,8 @@ public class ChordBuilderDBHelperUkulele extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-        db.execSQL("DROP TABLE IF EXISTS '" + TABLE_UKULELE + "'");
-        db.execSQL("DROP TABLE IF EXISTS '" + TABLE_USER_TABLE + "'");
-
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_UKULELE );
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER_TABLE );
         onCreate(db);
     }
 }

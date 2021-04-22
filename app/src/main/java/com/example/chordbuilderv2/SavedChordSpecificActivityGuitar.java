@@ -171,6 +171,7 @@ public class SavedChordSpecificActivityGuitar extends AppCompatActivity {
                     Intent intent1 = new Intent(getApplicationContext(), SavedChordsActivity.class);
                     startActivity(intent1);
                 }
+                cursor.close();
 
 
         }

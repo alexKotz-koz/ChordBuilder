@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     Button ukuleleButtonMain;
     Button guitarButtonMain;
     Menu mainMenu;
+    ChordBuilderDBHelperUkulele chordBuilderDBHelperUkulele;
+    ChordBuilderDBHelperSaved chordBuilderDBHelperSaved;
 
     public static String userInputBPM;
 
@@ -37,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        chordBuilderDBHelperUkulele = new ChordBuilderDBHelperUkulele(getApplicationContext());
+        chordBuilderDBHelperSaved = new ChordBuilderDBHelperSaved(getApplicationContext());
+
         ukuleleButtonMain = findViewById(R.id.buttonUkulele);
         guitarButtonMain = findViewById(R.id.buttonGuitar);
         checkActivityMain = true;
