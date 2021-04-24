@@ -107,6 +107,25 @@ public class SavedChordsActivity extends AppCompatActivity implements SavedChord
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
                 return true;
+            case (R.id.item_del):
+                Cursor cursor;
+                SQLiteDatabase sqLiteDatabase2 = chordBuilderDBHelperSaved.getReadableDatabase();
+                cursor = sqLiteDatabase2.query("userChords",new String[]{"_id","instrument","chordName","fingering","chordNotes"},null,null,null,null,null);
+                cursor.moveToFirst();
+
+                if (cursor.getCount() <= 0){
+                    System.out.println("Inhere");
+                    finish();
+                }
+                else {
+                    SQLiteDatabase sqLiteDatabase = chordBuilderDBHelperSaved.getWritableDatabase();
+                    sqLiteDatabase.delete("userChords", null,null);
+                    savedChordAdapter.notifyDataSetChanged();
+                    sqLiteDatabase.close();
+                    Intent intent1 = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent1);
+                }
+                cursor.close();
         }
         return super.onOptionsItemSelected(item);
     }

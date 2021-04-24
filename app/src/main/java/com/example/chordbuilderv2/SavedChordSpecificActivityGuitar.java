@@ -90,13 +90,16 @@ public class SavedChordSpecificActivityGuitar extends AppCompatActivity {
         textViewSavedSpecificChordNameGuitar.setText(chordName);
         textViewSavedSpecificChordFingeringGuitar.setText(chordFingering);
         textViewSavedSpecificChordNotesGuitar.setText(chordNotes);
-        char filler = '9';
+
+        System.out.println("CHORD FINGERING: \n"+chordFingering);
+
         for(int i = 0; i < chordFingering.length(); i++){
             if(chordFingering.charAt(i) == 'X'){
-                chordFingering = chordFingering.replace('X',filler);
+                chordFingering = chordFingering.replace('X','0');
             }
 
         }
+        System.out.println(chordFingering);
 
 
 
@@ -118,9 +121,25 @@ public class SavedChordSpecificActivityGuitar extends AppCompatActivity {
             listB.add("o");
             listEh.add("o");
         }
-        if (noteForEString > -1) {
-            listE.set(noteForEString, "p");
+        if (noteForEString != -1){
+            listE.add(noteForEString,"p");
         }
+        if (noteForAString != -1){
+            listA.add(noteForAString,"p");
+        }
+        if (noteForDString != -1){
+            listD.add(noteForDString,"p");
+        }
+        if (noteForGString != -1){
+            listG.add(noteForGString,"p");
+        }
+        if (noteForBString != -1){
+            listB.add(noteForBString,"p");
+        }
+        if (noteForEhString != -1){
+            listEh.add(noteForEhString,"p");
+        }
+
         adapterE = new GUIArrayAdapter(this, listE);
         listViewESaved.setAdapter(adapterE);
 

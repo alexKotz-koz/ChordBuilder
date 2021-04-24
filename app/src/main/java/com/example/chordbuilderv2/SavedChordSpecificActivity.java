@@ -83,10 +83,15 @@ public class SavedChordSpecificActivity extends AppCompatActivity {
         textViewSavedSpecificChordNotes.setText(chordNotes);
 
         if (instrument.equals("ukulele")) {
-            noteForGString = Integer.parseInt(String.valueOf(chordFingering.charAt(0))) - 1;
-            noteForCString = Integer.parseInt(String.valueOf(chordFingering.charAt(3))) - 1;
-            noteForEString = Integer.parseInt(String.valueOf(chordFingering.charAt(6))) - 1;
-            noteForAString = Integer.parseInt(String.valueOf(chordFingering.charAt(9))) - 1;
+            System.out.println("Chord Fingering: "+ chordFingering);
+            noteForGString = Integer.parseInt(String.valueOf(chordFingering.charAt(0)))-1;
+            System.out.println("Note for g string"+noteForGString);
+            noteForCString = Integer.parseInt(String.valueOf(chordFingering.charAt(3)))-1;
+            System.out.println("Note for C string"+noteForCString);
+            noteForEString = Integer.parseInt(String.valueOf(chordFingering.charAt(6)))-1;
+            System.out.println("NOTE for E" +noteForEString);
+            noteForAString = Integer.parseInt(String.valueOf(chordFingering.charAt(9)))-1;
+
 
 
 
@@ -96,19 +101,33 @@ public class SavedChordSpecificActivity extends AppCompatActivity {
                 listE.add("o");
                 listA.add("o");
             }
-            if (noteForGString > -1) {
-                listG.set(noteForGString, "p");
+            if (noteForGString != -1){
+                listG.add(noteForGString,"p");
             }
-            adapterG = new GUIArrayAdapter(this, listG);
+            if (noteForCString != -1){
+                listC.add(noteForCString,"p");
+            }
+            if (noteForEString != -1){
+                listE.add(noteForEString,"p");
+            }
+            if (noteForAString != -1){
+                listA.add(noteForAString,"p");
+            }
+
+
+
+
+
+            adapterG = new GUIArrayAdapter(getApplicationContext(), listG);
             listViewGSaved.setAdapter(adapterG);
 
-            adapterE = new GUIArrayAdapter(this, listE);
+            adapterE = new GUIArrayAdapter(getApplicationContext(), listE);
             listViewESaved.setAdapter(adapterE);
 
-            adapterC = new GUIArrayAdapter(this, listC);
+            adapterC = new GUIArrayAdapter(getApplicationContext(), listC);
             listViewCSaved.setAdapter(adapterC);
 
-            adapterA = new GUIArrayAdapter(this, listA);
+            adapterA = new GUIArrayAdapter(getApplicationContext(), listA);
             listViewASaved.setAdapter(adapterA);
         } else if(instrument.equals("guitar")){
             Intent intent = new Intent(getApplicationContext(),SavedChordSpecificActivityGuitar.class);
