@@ -14,4 +14,8 @@
         android:id="@+id/item_instruction"
         android:title="Instructions"
         app:showAsAction="ifRoom|withText" />
+    <item
+        android:id="@+id/item_metro"
+        android:title="Metronome"
+        app:showAsAction="ifRoom|withText" />
 </menu>

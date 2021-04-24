@@ -99,6 +99,9 @@ public class MainActivity extends AppCompatActivity {
 
                 builder.show();
                 break;
+            case R.id.item_metro:
+                Intent intent1 = new Intent(getApplicationContext(),MetronomeActivity.class);
+                startActivity(intent1);
 
 
         }
