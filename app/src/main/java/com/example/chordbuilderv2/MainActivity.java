@@ -57,10 +57,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), GUIGridGuitar.class);
         startActivity(intent);
     }
-    public void onClickCF(View view){
+    /*public void onClickCF(View view){
         Intent intent = new Intent(getApplicationContext(), ChordFinderActivity.class);
         startActivity(intent);
-    }
+    }*/
 
 
     public void onClickSavedChord(View view){

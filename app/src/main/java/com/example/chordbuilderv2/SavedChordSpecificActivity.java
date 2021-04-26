@@ -102,16 +102,16 @@ public class SavedChordSpecificActivity extends AppCompatActivity {
                 listA.add("o");
             }
             if (noteForGString != -1){
-                listG.add(noteForGString,"p");
+                listG.set(noteForGString,"p");
             }
             if (noteForCString != -1){
-                listC.add(noteForCString,"p");
+                listC.set(noteForCString,"p");
             }
             if (noteForEString != -1){
-                listE.add(noteForEString,"p");
+                listE.set(noteForEString,"p");
             }
             if (noteForAString != -1){
-                listA.add(noteForAString,"p");
+                listA.set(noteForAString,"p");
             }
 
 

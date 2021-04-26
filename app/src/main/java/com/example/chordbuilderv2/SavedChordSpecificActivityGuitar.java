@@ -122,22 +122,23 @@ public class SavedChordSpecificActivityGuitar extends AppCompatActivity {
             listEh.add("o");
         }
         if (noteForEString != -1){
-            listE.add(noteForEString,"p");
+            //listE.add(noteForEString,"p");
+            listE.set(noteForEString, "p");
         }
         if (noteForAString != -1){
-            listA.add(noteForAString,"p");
+            listA.set(noteForAString,"p");
         }
         if (noteForDString != -1){
-            listD.add(noteForDString,"p");
+            listD.set(noteForDString,"p");
         }
         if (noteForGString != -1){
-            listG.add(noteForGString,"p");
+            listG.set(noteForGString,"p");
         }
         if (noteForBString != -1){
-            listB.add(noteForBString,"p");
+            listB.set(noteForBString,"p");
         }
         if (noteForEhString != -1){
-            listEh.add(noteForEhString,"p");
+            listEh.set(noteForEhString,"p");
         }
 
         adapterE = new GUIArrayAdapter(this, listE);
