@@ -52,7 +52,6 @@ public class SavedChordSpecificActivityGuitar extends AppCompatActivity {
     String chordName;
     String chordNotes;
     String chordFingering;
-    int position;
 
     int noteForEString;
     int noteForAString;
@@ -91,19 +90,14 @@ public class SavedChordSpecificActivityGuitar extends AppCompatActivity {
         textViewSavedSpecificChordFingeringGuitar.setText(chordFingering);
         textViewSavedSpecificChordNotesGuitar.setText(chordNotes);
 
-        System.out.println("CHORD FINGERING: \n"+chordFingering);
-
         for(int i = 0; i < chordFingering.length(); i++){
             if(chordFingering.charAt(i) == 'X'){
                 chordFingering = chordFingering.replace('X','0');
             }
 
         }
-        System.out.println(chordFingering);
 
-
-
-
+        instrument = "guitar";
 
         noteForEString = Integer.parseInt(String.valueOf(chordFingering.charAt(0))) - 1;
         noteForAString = Integer.parseInt(String.valueOf(chordFingering.charAt(2))) - 1;
@@ -122,7 +116,6 @@ public class SavedChordSpecificActivityGuitar extends AppCompatActivity {
             listEh.add("o");
         }
         if (noteForEString != -1){
-            //listE.add(noteForEString,"p");
             listE.set(noteForEString, "p");
         }
         if (noteForAString != -1){
@@ -170,7 +163,7 @@ public class SavedChordSpecificActivityGuitar extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.item_home:
+            case (R.id.item_home):
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
                 return true;
@@ -180,7 +173,6 @@ public class SavedChordSpecificActivityGuitar extends AppCompatActivity {
                 cursor = sqLiteDatabase2.query("userChords",new String[]{"_id","instrument","chordName","fingering","chordNotes"},null,null,null,null,null);
                 cursor.moveToFirst();
                 if (cursor.getCount() <= 0){
-                    System.out.println("Inhere");
                     finish();
                 }
                 else {
@@ -188,11 +180,10 @@ public class SavedChordSpecificActivityGuitar extends AppCompatActivity {
                     sqLiteDatabase.delete(DATABASE_TABLE, "instrument=? and chordName=?", new String[]{instrument, chordName});
                     savedChordAdapter.notifyDataSetChanged();
                     sqLiteDatabase.close();
-                    Intent intent1 = new Intent(getApplicationContext(), SavedChordsActivity.class);
+                    Intent intent1 = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent1);
                 }
-
-
+                cursor.close();
         }
         return super.onOptionsItemSelected(item);
     }

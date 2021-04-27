@@ -28,12 +28,6 @@ public class ChordFinderActivity extends AppCompatActivity {
     Button buttonSubmit;
     String chord;
     ProgressBar progressBar;
-    TextView textViewStrings;
-    TextView textViewVoicing;
-    TextView textViewName;
-    TextView textViewChordNotes;
-    TextView textViewFingering;
-    String parseChordString;
     private Handler mainHandler2;
     ChordHandlerThreadGuitarCF chordHandlerThreadGuitarCF;
     ArrayList<String> urlArray;
@@ -84,12 +78,8 @@ public class ChordFinderActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
-
-
-
 
         mainHandler2 = new Handler(){
             @SuppressLint("SetTextI18n")
@@ -114,10 +104,8 @@ public class ChordFinderActivity extends AppCompatActivity {
         if (quality==null || quality.equals("Maj")){
             chord = root;
         }else{
-
             chord = root+"_"+quality.toLowerCase();
         }
-
         chordHandlerThreadGuitarCF = new ChordHandlerThreadGuitarCF(getApplicationContext(),mainHandler2, chord);
         chordHandlerThreadGuitarCF.start();
         progressBar.setVisibility(View.VISIBLE);
@@ -126,8 +114,6 @@ public class ChordFinderActivity extends AppCompatActivity {
     public void onClickSubmit(View view){
         getPreBuildChord();
     }
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -143,7 +129,6 @@ public class ChordFinderActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
                 return true;
-
         }
         return super.onOptionsItemSelected(item);
     }

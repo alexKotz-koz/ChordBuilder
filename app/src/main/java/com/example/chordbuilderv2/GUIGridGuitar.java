@@ -315,7 +315,7 @@ public class GUIGridGuitar extends AppCompatActivity {
                             listEh.set(i, "x");
                             finalList.set(5, "X");
                     }
-                    if(listEh.get(i) == "o"){
+                    if(listEh.get(i).equals("o")){
                         openEh = true;
                     }
                 }
@@ -343,9 +343,6 @@ public class GUIGridGuitar extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(),GuitarActivity.class);
         intent.putExtra("finalist",finalList);
         startActivity(intent);
-    }
-    public ArrayList<String> getFinalList(){
-        return finalList;
     }
     public void mutedClick(View view) {
         state = 2;

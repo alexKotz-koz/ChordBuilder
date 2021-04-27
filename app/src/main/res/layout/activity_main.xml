@@ -11,8 +11,6 @@
         android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-
         android:text="Please Select an Instrument"
         android:textSize="24sp" />
 
@@ -54,13 +52,13 @@
             android:onClick="onClickSavedChord"
             android:text="Saved Chords" />
 
-        <!--<Button
+      <!-- <Button
             android:id="@+id/buttonCF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="onClickCF"
-            android:text="Chord Finder" />-->
+            android:text="Chord Finder" /> -->
     </LinearLayout>
 
 

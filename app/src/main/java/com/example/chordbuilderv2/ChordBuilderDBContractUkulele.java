@@ -4,8 +4,6 @@ public class ChordBuilderDBContractUkulele {
 
     public static final String SQL_CREATE_TABLE_UKULELE="CREATE TABLE ukuleleChords (_id INTEGER PRIMARY KEY, name TEXT, string1 INTEGER, string2 INTEGER, string3 INTEGER, string4 INTEGER )";
     public static final String SQL_CREATE_USER_TABLE="CREATE TABLE userChords (_id INTEGER PRIMARY KEY, instrument TEXT, chordName TEXT, fingering TEXT, chordNotes TEXT)";
-
-
     public static final String INSERT_UKULELE_CHORDS = "INSERT INTO ukuleleChords\n" +
             "\t\t(name, string1, string2, string3, string4)\n" +
             "\tVALUES\n" +
@@ -117,5 +115,4 @@ public class ChordBuilderDBContractUkulele {
             "\t\t(\"B6\", 1, 3 ,2, 2),\n" +
             "\t\t(\"Bmaj7\", 3, 3 ,2, 2),\n" +
             "\t\t(\"B9\", 2, 3 ,2, 4);";
-
 }

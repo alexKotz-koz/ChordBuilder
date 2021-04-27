@@ -23,14 +23,10 @@ import java.io.IOException;
 import java.util.Timer;
 
 public class MainActivity extends AppCompatActivity {
-    private Handler mainHandler;
     Button ukuleleButtonMain;
     Button guitarButtonMain;
-    Menu mainMenu;
     ChordBuilderDBHelperUkulele chordBuilderDBHelperUkulele;
     ChordBuilderDBHelperSaved chordBuilderDBHelperSaved;
-
-    public static String userInputBPM;
 
 
     public static boolean checkActivityMain = false;
@@ -57,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), GUIGridGuitar.class);
         startActivity(intent);
     }
-    /*public void onClickCF(View view){
+
+   /* public void onClickCF(View view){
         Intent intent = new Intent(getApplicationContext(), ChordFinderActivity.class);
         startActivity(intent);
     }*/
@@ -81,11 +78,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.item_home:
+            case (R.id.item_home):
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
                 return true;
-            case R.id.item_instruction:
+            case (R.id.item_instruction):
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                 builder.setTitle("INSTRUCTIONS");
                 builder.setMessage("Select an Instrument to Build a Chord \n\nSelect Saved Chords to View Your Chords \n\nSelect Chord Finder to Find Chord From Root ");
@@ -99,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
                 builder.show();
                 break;
-            case R.id.item_metro:
+            case (R.id.item_metro):
                 Intent intent1 = new Intent(getApplicationContext(),MetronomeActivity.class);
                 startActivity(intent1);
 

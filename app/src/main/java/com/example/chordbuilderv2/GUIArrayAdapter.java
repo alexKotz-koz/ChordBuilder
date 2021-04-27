@@ -30,10 +30,10 @@ public class GUIArrayAdapter extends ArrayAdapter<String> {
         View rowView = inflater.inflate(R.layout.gui_images, parent, false);
         ImageView imageView = (ImageView) rowView.findViewById(R.id.imageView2);
 
-        if(values.get(position) == "p"){
+        if(values.get(position).equals("p")){
             imageView.setBackgroundResource(R.drawable.played);
         }
-        else if(values.get(position) == "x"){
+        else if(values.get(position).equals("x")){
             imageView.setBackgroundResource(R.drawable.muted);
         }
         else{

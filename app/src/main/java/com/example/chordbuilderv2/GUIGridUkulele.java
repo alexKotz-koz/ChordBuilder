@@ -31,8 +31,6 @@ public class GUIGridUkulele extends AppCompatActivity {
     boolean openA;
 
     ArrayList<String> finalList = new ArrayList<>();
-    ImageView imageView;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,10 +85,10 @@ public class GUIGridUkulele extends AppCompatActivity {
         listViewC.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                if(openC == false && listC.get(i) == "o"){
+                if(!openC && listC.get(i).equals("o")){
                     Toast.makeText(getApplicationContext(), "note already exists for string C please deselect it to add a new one.", Toast.LENGTH_LONG).show();
                 }
-                else if(openC == false && listC.get(i) == "p"){
+                else if(!openC && listC.get(i).equals("p")){
                     listC.set(i, "o");
                     openC = true;
                     finalList.set(1, "0");
@@ -111,10 +109,10 @@ public class GUIGridUkulele extends AppCompatActivity {
         listViewE.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                if(openE == false && listE.get(i) == "o"){
+                if(!openE && listE.get(i).equals("o")){
                     Toast.makeText(getApplicationContext(), "note already exists for string E please deselect it to add a new one.", Toast.LENGTH_LONG).show();
                 }
-                else if(openE == false && listE.get(i) == "p"){
+                else if(!openE && listE.get(i).equals("p")){
                     listE.set(i, "o");
                     openE = true;
                     finalList.set(2, "0");
@@ -135,10 +133,10 @@ public class GUIGridUkulele extends AppCompatActivity {
         listViewA.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                if(!openA && listA.get(i) == "o"){
+                if(!openA && listA.get(i).equals("o")){
                     Toast.makeText(getApplicationContext(), "note already exists for string A please deselect it to add a new one.", Toast.LENGTH_LONG).show();
                 }
-                else if(!openA && listA.get(i) == "p"){
+                else if(!openA && listA.get(i).equals("p")){
                     listA.set(i, "o");
                     openA = true;
                     finalList.set(3, "0");

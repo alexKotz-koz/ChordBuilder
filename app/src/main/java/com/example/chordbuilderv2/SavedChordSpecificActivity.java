@@ -66,7 +66,6 @@ public class SavedChordSpecificActivity extends AppCompatActivity {
         listViewESaved = findViewById(R.id.listViewStringESaved);
         listViewGSaved = findViewById(R.id.listViewStringGSaved);
 
-
         savedChordAdapter =  new SavedChordAdapter(getApplicationContext());
         chordBuilderDBHelperSaved = new ChordBuilderDBHelperSaved(getApplicationContext());
         chordBuilderDBHelperSaved.getReadableDatabase();
@@ -83,17 +82,10 @@ public class SavedChordSpecificActivity extends AppCompatActivity {
         textViewSavedSpecificChordNotes.setText(chordNotes);
 
         if (instrument.equals("ukulele")) {
-            System.out.println("Chord Fingering: "+ chordFingering);
             noteForGString = Integer.parseInt(String.valueOf(chordFingering.charAt(0)))-1;
-            System.out.println("Note for g string"+noteForGString);
             noteForCString = Integer.parseInt(String.valueOf(chordFingering.charAt(3)))-1;
-            System.out.println("Note for C string"+noteForCString);
             noteForEString = Integer.parseInt(String.valueOf(chordFingering.charAt(6)))-1;
-            System.out.println("NOTE for E" +noteForEString);
             noteForAString = Integer.parseInt(String.valueOf(chordFingering.charAt(9)))-1;
-
-
-
 
             for (int i = 0; i < 5; i++) {
                 listG.add("o");
@@ -114,10 +106,6 @@ public class SavedChordSpecificActivity extends AppCompatActivity {
                 listA.set(noteForAString,"p");
             }
 
-
-
-
-
             adapterG = new GUIArrayAdapter(getApplicationContext(), listG);
             listViewGSaved.setAdapter(adapterG);
 
@@ -136,9 +124,8 @@ public class SavedChordSpecificActivity extends AppCompatActivity {
             intent.putExtra("NOTES",chordNotes);
             startActivity(intent);
         }
-
-
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
@@ -149,7 +136,7 @@ public class SavedChordSpecificActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.item_home:
+            case (R.id.item_home):
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
                 return true;
@@ -159,7 +146,6 @@ public class SavedChordSpecificActivity extends AppCompatActivity {
                 cursor = sqLiteDatabase2.query("userChords",new String[]{"_id","instrument","chordName","fingering","chordNotes"},null,null,null,null,null);
                 cursor.moveToFirst();
                 if (cursor.getCount() <= 0){
-                    System.out.println("Inhere");
                     finish();
                 }
                 else {
@@ -167,14 +153,10 @@ public class SavedChordSpecificActivity extends AppCompatActivity {
                     sqLiteDatabase.delete(DATABASE_TABLE, "instrument=? and chordName=?", new String[]{instrument, chordName});
                     savedChordAdapter.notifyDataSetChanged();
                     sqLiteDatabase.close();
-                    Intent intent1 = new Intent(getApplicationContext(), SavedChordsActivity.class);
+                    Intent intent1 = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent1);
                 }
-
-
         }
         return super.onOptionsItemSelected(item);
     }
-
-
 }

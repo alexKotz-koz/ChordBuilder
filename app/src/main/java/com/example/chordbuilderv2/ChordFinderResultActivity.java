@@ -15,8 +15,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class ChordFinderResultActivity extends AppCompatActivity {
-    TextView textViewStringsCF;
-    TextView textViewVoicingCF;
     TextView textViewChordNameCF;
     TextView textViewChordNotesCF;
     TextView textViewFingeringCF;
@@ -40,7 +38,6 @@ public class ChordFinderResultActivity extends AppCompatActivity {
 
         urlArray = getIntent().getStringArrayListExtra("URLOBJECT");
 
-
         fingering = urlArray.get(1);
         chordName = urlArray.get(2);
         chordNotes = urlArray.get(4);
@@ -48,8 +45,8 @@ public class ChordFinderResultActivity extends AppCompatActivity {
         textViewFingeringCF.setText(fingering);
         textViewChordNameCF.setText(chordName);
         textViewChordNotesCF.setText(chordNotes);
-
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
@@ -60,11 +57,11 @@ public class ChordFinderResultActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.item_home:
+            case (R.id.item_home):
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
                 return true;
-            case R.id.item_del:
+            case (R.id.item_del):
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("instrument", "guitar");
                 contentValues.put("chordName", chordName);

@@ -38,7 +38,6 @@ public class MetronomeActivity extends AppCompatActivity {
         startPlayer = findViewById(R.id.buttonStartMediaPlayer);
         soundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
         soundIdTick = soundPool.load(this, R.raw.tick, 1);
-
         isPlaying = false;
     }
 

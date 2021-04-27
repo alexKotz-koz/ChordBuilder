@@ -10,6 +10,7 @@ public class ChordBuilderDBHelperUkulele extends SQLiteOpenHelper {
     ChordBuilderDBContractUkulele chordBuilderDBContractUkulele;
     private static final String TABLE_USER_TABLE = "userChords";
     private static final String TABLE_UKULELE = "ukuleleChords";
+
     public ChordBuilderDBHelperUkulele(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
         chordBuilderDBContractUkulele = new ChordBuilderDBContractUkulele();

@@ -31,7 +31,6 @@ public class ChordHandlerThreadGuitar extends HandlerThread {
 
     @Override
     public void run() {
-
             try{
             URL url = new URL("https://api.uberchord.com/v1/chords?voicing="+ fingeringList.get(0)
                     + "-" + fingeringList.get(1)
@@ -42,6 +41,7 @@ public class ChordHandlerThreadGuitar extends HandlerThread {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(url.openStream()));
             String line = bufferedReader.readLine();
             JSONArray jsonArray1 = new JSONArray(line);
+
             for (int i = 0; i < jsonArray1.length();i++){
                 String urlObjects = jsonArray1.getString(i);
                 JSONObject jsonObject = new JSONObject(urlObjects);
