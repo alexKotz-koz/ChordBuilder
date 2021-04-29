@@ -54,41 +54,35 @@
 
         <ListView
             android:id="@+id/listViewStringESaved"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_width="60dp"
+            android:layout_height="match_parent">
 
         </ListView>
 
         <ListView
             android:id="@+id/listViewStringASaved"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_width="60dp"
+            android:layout_height="match_parent" />
 
         <ListView
             android:id="@+id/listViewStringD"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_width="60dp"
+            android:layout_height="match_parent" />
 
         <ListView
             android:id="@+id/listViewStringGSaved"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_width="60dp"
+            android:layout_height="match_parent" />
 
         <ListView
             android:id="@+id/listViewStringB"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_width="60dp"
+            android:layout_height="match_parent" />
 
         <ListView
             android:id="@+id/listViewStringEh"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_width="60dp"
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 
