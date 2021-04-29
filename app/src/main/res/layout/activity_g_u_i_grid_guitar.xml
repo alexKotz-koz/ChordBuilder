@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     android:orientation="vertical"
-    tools:context=".GUIGridGuitar"
-    android:background="#FFFFCC">
+    tools:context=".GUIGridGuitar">
 
     <LinearLayout
         android:id="@+id/linearLayoutButtons"
@@ -20,7 +20,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="openClick"
-            android:text="Open" />
+            android:text="Open"
+            app:strokeColor="#FFFFFF"
+            app:strokeWidth="1dp" />
 
         <Button
             android:id="@+id/buttonPlayed"
@@ -28,7 +30,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="playedClick"
-            android:text="Played" />
+            android:text="Played"
+            app:strokeColor="#FFFFFF"
+            app:strokeWidth="1dp" />
 
         <Button
             android:id="@+id/buttonMuted"
@@ -36,7 +40,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="mutedClick"
-            android:text="Muted" />
+            android:text="Muted"
+            app:strokeColor="#FFFFFF"
+            app:strokeWidth="1dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -91,6 +97,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="submitClick"
-        android:text="@string/submit" />
+        android:text="@string/submit"
+        app:strokeColor="#FFFFFF"
+        app:strokeWidth="1dp" />
 
 </LinearLayout>

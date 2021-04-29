@@ -76,7 +76,7 @@ public class SavedChordSpecificActivity extends AppCompatActivity {
         chordFingering = getIntent().getStringExtra("FINGERING");
         chordNotes = getIntent().getStringExtra("NOTES");
 
-        textViewSavedSpecificInstrument.setText(instrument);
+        textViewSavedSpecificInstrument.setText(instrument.toUpperCase());
         textViewSavedSpecificChordName.setText(chordName);
         textViewSavedSpecificChordFingering.setText(chordFingering);
         textViewSavedSpecificChordNotes.setText(chordNotes);

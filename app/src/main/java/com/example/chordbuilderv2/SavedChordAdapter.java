@@ -76,7 +76,7 @@ public class SavedChordAdapter extends RecyclerView.Adapter {
         chordViewHolder.textViewChordNoteText.setText(chordNotes);
         chordViewHolder.textViewChordNameText.setText(chordName);
         chordViewHolder.textViewChordFingeringText.setText(fingering);
-        chordViewHolder.textViewInstrumentText.setText(instrument);
+        chordViewHolder.textViewInstrumentText.setText(instrument.toUpperCase());
 
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
