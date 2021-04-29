@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".SavedGuitarChordsActivity">
+    tools:context=".SavedChordsActivity"
+    android:background="#000000">
 
     <TextView
         android:id="@+id/textViewSavedGuitarTitle"
@@ -13,7 +14,8 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Your Saved Chords"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#FFFFFF" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewSavedChords"

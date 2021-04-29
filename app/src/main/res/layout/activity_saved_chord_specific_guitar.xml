@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".SavedChordSpecificActivityGuitar">
+    tools:context=".SavedChordSpecificActivityGuitar"
+    android:background="#000000">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,14 +16,16 @@
             android:id="@+id/textViewLabelInstrumentGuitar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Instrument: " />
+            android:text="Instrument: "
+            android:textColor="#FFFFFF" />
 
         <TextView
             android:id="@+id/textViewSavedSpecificInstrumentGuitar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
     <LinearLayout
@@ -34,14 +37,16 @@
             android:id="@+id/textViewLabelChordNameGuitar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Chord Name:" />
+            android:text="Chord Name:"
+            android:textColor="#FFFFFF" />
 
         <TextView
             android:id="@+id/textViewSavedSpecificChordNameGuitar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
     <LinearLayout
@@ -53,14 +58,16 @@
             android:id="@+id/textViewLabelChordFingeringGuitar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Chord Fingering:" />
+            android:text="Chord Fingering:"
+            android:textColor="#FFFFFF" />
 
         <TextView
             android:id="@+id/textViewSavedSpecificChordFingeringGuitar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
     <LinearLayout
@@ -72,14 +79,16 @@
             android:id="@+id/textViewLabelChordNotesGuitar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Chord Notes:" />
+            android:text="Chord Notes:"
+            android:textColor="#FFFFFF" />
 
         <TextView
             android:id="@+id/textViewSavedSpecificChordNotesGuitar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
 
