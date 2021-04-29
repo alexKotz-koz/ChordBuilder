@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.item_instruction:
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                 builder.setTitle("INSTRUCTIONS");
-                builder.setMessage("Select an Instrument to Build a Chord \n\nSelect Saved Chords to View Your Chords \n\nSelect Chord Finder to Find Chord From Root ");
+                builder.setMessage("Select an Instrument to Build a Chord \n\nSelect Saved Chords to View Your Chords");
 
                 builder.setNegativeButton("CLOSE", new DialogInterface.OnClickListener() {
                     @Override
