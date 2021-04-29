@@ -67,7 +67,6 @@ public class GuitarActivity extends AppCompatActivity {
                        textViewFingering.setText("Fingering" + urlArray.get(1));
                        parseChordString = urlArray.get(2);
 
-
                        for (int i = 0; i < parseChordString.length();i++){
                            if (parseChordString.charAt(2) == ','){
                                textViewName.setText("Chord Name: " + parseChordString.charAt(0));
@@ -99,11 +98,11 @@ public class GuitarActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.item_home:
+            case (R.id.item_home):
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
                 return true;
-            case R.id.item_del:
+            case (R.id.item_del):
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("instrument", "guitar");
                 contentValues.put("chordName",parseChordString);
@@ -115,8 +114,6 @@ public class GuitarActivity extends AppCompatActivity {
                 sqLiteDatabase.close();
                 Intent intent1 = new Intent(getApplicationContext(), SavedChordsActivity.class);
                 startActivity(intent1);
-
-
                 return true;
         }
         return super.onOptionsItemSelected(item);

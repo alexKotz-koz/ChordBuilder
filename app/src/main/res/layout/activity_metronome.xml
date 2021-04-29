@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     android:orientation="vertical"
     tools:context=".MetronomeActivity">
 
@@ -16,7 +17,8 @@
             android:id="@+id/labelUserInput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Please Enter BPM:" />
+            android:text="Please Enter BPM:"
+            android:textColor="#FFFFFF" />
 
         <EditText
             android:id="@+id/editTextUserInput"
@@ -25,7 +27,8 @@
             android:layout_weight="1"
             android:background="#302F2F"
             android:ems="10"
-            android:inputType="number" />
+            android:inputType="number"
+            android:textColor="#FFFFFF" />
 
     </LinearLayout>
 
@@ -34,5 +37,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="tapMetronome"
-        android:text="Tap" />
+        android:text="Tap"
+        android:textColor="#FFFFFF"
+        app:strokeColor="#FFFFFF"
+        app:strokeWidth="1dp" />
 </LinearLayout>

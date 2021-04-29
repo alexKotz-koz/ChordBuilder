@@ -3,7 +3,9 @@
     android:id="@+id/linearLayoutFrameRecycler"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:background="#000000"
+    android:orientation="vertical"
+    android:padding="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,13 +16,15 @@
             android:id="@+id/textViewInstrument"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Instrument: " />
+            android:text="Instrument: "
+            android:textColor="#FFFFFF" />
 
         <TextView
             android:id="@+id/textViewInstrumentText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
     <LinearLayout
@@ -31,14 +35,16 @@
             android:id="@+id/textViewChordName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Chord Name: " />
+            android:text="Chord Name: "
+            android:textColor="#FFFFFF" />
 
         <TextView
             android:id="@+id/textViewChordNameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
     <LinearLayout
@@ -49,13 +55,15 @@
             android:id="@+id/textViewChordFingering"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Chord Fingering: " />
+            android:text="Chord Fingering: "
+            android:textColor="#FFFFFF" />
 
         <TextView
             android:id="@+id/textViewChordFingeringText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
     <LinearLayout
@@ -66,22 +74,17 @@
             android:id="@+id/textViewChordNote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Chord Notes: " />
+            android:text="Chord Notes: "
+            android:textColor="#FFFFFF" />
 
         <TextView
             android:id="@+id/textViewChordNoteText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="#FFFFFF" />
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#050505"
-        android:text="TextView" />
 
 </LinearLayout>

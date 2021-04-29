@@ -23,8 +23,9 @@ public class ChordHandlerThreadGuitarCF extends HandlerThread {
     String urlChordName = "";
     String urlVoicing = "";
     String urlChordNotes = "";
-    ArrayList<Integer> fingeringList;
+
     static ArrayList <String> urlObject = new ArrayList<String>();
+
     public ChordHandlerThreadGuitarCF(Context context, Handler mainHandler, String chord) {
         super("ChordHandlerThreadGuitarCF");
         this.context = context;
@@ -45,20 +46,11 @@ public class ChordHandlerThreadGuitarCF extends HandlerThread {
                 String urlObjects = jsonArray1.getString(i);
                 JSONObject jsonObject = new JSONObject(urlObjects);
                 for (int j=0; j < jsonObject.length(); j++){
-
                     urlStrings = jsonObject.getString("strings");
                     urlFingering = jsonObject.getString("fingering");
                     urlChordName = jsonObject.getString("chordName");
                     urlVoicing = jsonObject.getString("voicingID");
                     urlChordNotes = jsonObject.getString("tones");
-
-                   
-                    System.out.println("URLOBJ:        "+urlObject);
-
-                    /*Message message = Message.obtain();
-                    message.obj = urlObject;
-                    message.what = 3;
-                    mainHandler.sendMessage(message);*/
                 }
             }
             urlObject.add(urlStrings);
@@ -72,10 +64,8 @@ public class ChordHandlerThreadGuitarCF extends HandlerThread {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
     public static ArrayList<String> getURLArr(){
         return urlObject;
     }
-
 }

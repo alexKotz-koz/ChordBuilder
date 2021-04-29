@@ -44,7 +44,6 @@ public class UkuleleActivity extends AppCompatActivity {
         chordBuilderDBHelper = new ChordBuilderDBHelperUkulele(getApplicationContext());
         sqLiteDatabase = chordBuilderDBHelper.getReadableDatabase();
 
-        System.out.println("Chord notes 1" + chordNotes);
         s1Array = new ArrayList<>();
         s2Array = new ArrayList<>();
         s3Array = new ArrayList<>();
@@ -106,11 +105,7 @@ public class UkuleleActivity extends AppCompatActivity {
         s4Array.add(11,"G#/Ab");
         s4Array.add(12,"A");
 
-
-
-
         savedChordAdapter = new SavedChordAdapter(getApplicationContext());
-        System.out.println("Chord notes 2" + chordNotes);
 
         String s1 = String.valueOf(preBuildChord.get(0));
         String s2 = String.valueOf(preBuildChord.get(1));
@@ -157,7 +152,6 @@ public class UkuleleActivity extends AppCompatActivity {
                 chordNotes += s1Array.get(12);
                 break;
         }
-        System.out.println("Chord notes 3" + chordNotes);
 
         switch (s2){
             case "0":
@@ -200,7 +194,6 @@ public class UkuleleActivity extends AppCompatActivity {
                 chordNotes += ", " + s2Array.get(12);
                 break;
         }
-        System.out.println("Chord notes 4" + chordNotes);
 
         switch (s3){
             case "0":
@@ -243,7 +236,6 @@ public class UkuleleActivity extends AppCompatActivity {
                 chordNotes += ", " + s3Array.get(12);
                 break;
         }
-        System.out.println("Chord notes 5" + chordNotes);
 
         switch (s4){
             case "0":
@@ -286,7 +278,6 @@ public class UkuleleActivity extends AppCompatActivity {
                 chordNotes += ", " + s4Array.get(12);
                 break;
         }
-        System.out.println("Chord notes 6 " + chordNotes);
 
         cursor = sqLiteDatabase.query("ukuleleChords", new String[]{ "name"}, "string1=? AND string2=? AND string3=? AND string4=?", new String[]{s1,s2,s3,s4}, null, null, null);
         cursor.moveToFirst();
@@ -314,12 +305,11 @@ public class UkuleleActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.item_home:
+            case (R.id.item_home):
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
                 return true;
-            case R.id.item_del:
-
+            case (R.id.item_del):
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("instrument", "ukulele");
                 contentValues.put("chordName", chordBuilderDBWrapper.getName());
@@ -330,12 +320,8 @@ public class UkuleleActivity extends AppCompatActivity {
                 savedChordAdapter.notifyDataSetChanged();
                 Intent intent1 = new Intent(getApplicationContext(), SavedChordsActivity.class);
                 startActivity(intent1);
-
-
-
                 return true;
         }
         return super.onOptionsItemSelected(item);
     }
-
 }

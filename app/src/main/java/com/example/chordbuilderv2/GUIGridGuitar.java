@@ -6,9 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -40,15 +38,12 @@ public class GUIGridGuitar extends AppCompatActivity {
     boolean openEh;
 
     ArrayList<String> finalList = new ArrayList<>();
-    TextView textView;
     int state = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_g_u_i_grid_guitar);
-        textView = findViewById(R.id.textView);
-
         openE = true;
         openA = true;
         openD = true;
@@ -70,16 +65,16 @@ public class GUIGridGuitar extends AppCompatActivity {
         }
 
         adapterE = new GUIArrayAdapter(this, listE);
-        listViewE = findViewById(R.id.listViewStringE);
+        listViewE = findViewById(R.id.listViewStringESaved);
         listViewE.setAdapter(adapterE);
 
         listViewE.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                if(openE == false && listE.get(i) == "o"){
+                if(!openE && listE.get(i).equals("o")){
                     Toast.makeText(getApplicationContext(), "note already exists for string E please deselect it to add a new one.", Toast.LENGTH_LONG).show();
                 }
-                else if(openE == false && listE.get(i) != "o"){
+                else if(!openE && !listE.get(i).equals("o")){
                     switch (state) {
                         case 0:
                             listE.set(i, "o");
@@ -116,16 +111,16 @@ public class GUIGridGuitar extends AppCompatActivity {
         });
 
         adapterA = new GUIArrayAdapter(this, listA);
-        listViewA = findViewById(R.id.listViewStringA);
+        listViewA = findViewById(R.id.listViewStringASaved);
         listViewA.setAdapter(adapterA);
 
         listViewA.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                if(openA == false && listA.get(i) == "o"){
+                if(!openA && listA.get(i).equals("o")){
                     Toast.makeText(getApplicationContext(), "note already exists for string A please deselect it to add a new one.", Toast.LENGTH_LONG).show();
                 }
-                else if(openA == false && listA.get(i) != "o"){
+                else if(!openA && !listA.get(i).equals("o")){
                     switch (state) {
                         case 0:
                             listA.set(i, "o");
@@ -139,7 +134,7 @@ public class GUIGridGuitar extends AppCompatActivity {
                             listA.set(i, "x");
                             finalList.set(1, "X");
                     }
-                    if(listA.get(i) == "o"){
+                    if(listA.get(i).equals("o")){
                         openA = true;
                     }
                 }
@@ -167,10 +162,10 @@ public class GUIGridGuitar extends AppCompatActivity {
         listViewD.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                if(openD == false && listD.get(i) == "o"){
+                if(!openD && listD.get(i).equals("o")){
                     Toast.makeText(getApplicationContext(), "note already exists for string D please deselect it to add a new one.", Toast.LENGTH_LONG).show();
                 }
-                else if(openD == false && listD.get(i) != "o"){
+                else if(!openD && !listD.get(i).equals("o")){
                     switch (state) {
                         case 0:
                             listD.set(i, "o");
@@ -206,16 +201,16 @@ public class GUIGridGuitar extends AppCompatActivity {
         });
 
         adapterG = new GUIArrayAdapter(this, listG);
-        listViewG = findViewById(R.id.listViewStringG);
+        listViewG = findViewById(R.id.listViewStringGSaved);
         listViewG.setAdapter(adapterG);
 
         listViewG.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                if(!openG && listG.get(i) == "o"){
+                if(!openG && listG.get(i).equals("o")){
                     Toast.makeText(getApplicationContext(), "note already exists for string G please deselect it to add a new one.", Toast.LENGTH_LONG).show();
                 }
-                else if(!openG && listG.get(i) != "o"){
+                else if(!openG && !listG.get(i).equals("o")){
                     switch (state) {
                         case 0:
                             listG.set(i, "o");
@@ -229,7 +224,7 @@ public class GUIGridGuitar extends AppCompatActivity {
                             listG.set(i, "x");
                             finalList.set(3, "X");
                     }
-                    if(listG.get(i) == "o"){
+                    if(listG.get(i).equals("o")){
                         openG = true;
                     }
                 }
@@ -274,7 +269,7 @@ public class GUIGridGuitar extends AppCompatActivity {
                             listB.set(i, "x");
                             finalList.set(4, "X");
                     }
-                    if(listB.get(i) == "o"){
+                    if(listB.get(i).equals("o")){
                         openB = true;
                     }
                 }
@@ -320,7 +315,7 @@ public class GUIGridGuitar extends AppCompatActivity {
                             listEh.set(i, "x");
                             finalList.set(5, "X");
                     }
-                    if(listEh.get(i) == "o"){
+                    if(listEh.get(i).equals("o")){
                         openEh = true;
                     }
                 }
@@ -342,15 +337,10 @@ public class GUIGridGuitar extends AppCompatActivity {
         });
     }
 
-
-
     public void submitClick(View view) {
         Intent intent = new Intent(getApplicationContext(),GuitarActivity.class);
         intent.putExtra("finalist",finalList);
         startActivity(intent);
-    }
-    public ArrayList<String> getFinalList(){
-        return finalList;
     }
     public void mutedClick(View view) {
         state = 2;

@@ -14,16 +14,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class SavedChordAdapter extends RecyclerView.Adapter {
-    Chord chord;
-
     ChordBuilderDBContractUkulele contractSaved;
     ChordBuilderDBHelperSaved dBHelper;
     SQLiteDatabase sqLiteDatabase;
     Cursor cursor;
     ChordBuilderDBWrapperSaved wrapperSaved;
     Context context;
-
     private Listener listener;
+
     public static interface Listener{
         public void onClick (int position);
     }
@@ -70,9 +68,7 @@ public class SavedChordAdapter extends RecyclerView.Adapter {
         ChordViewHolder chordViewHolder = (ChordViewHolder) holder;
         LinearLayout linearLayout = ((ChordViewHolder) holder).linearLayout ;
         wrapperSaved = new ChordBuilderDBWrapperSaved(cursor);
-
         cursor.moveToPosition(position);
-
         String fingering = wrapperSaved.getFingering();
         String chordName = wrapperSaved.getChordName();
         String chordNotes = wrapperSaved.getChordNotes();
@@ -80,7 +76,7 @@ public class SavedChordAdapter extends RecyclerView.Adapter {
         chordViewHolder.textViewChordNoteText.setText(chordNotes);
         chordViewHolder.textViewChordNameText.setText(chordName);
         chordViewHolder.textViewChordFingeringText.setText(fingering);
-        chordViewHolder.textViewInstrumentText.setText(instrument);
+        chordViewHolder.textViewInstrumentText.setText(instrument.toUpperCase());
 
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override

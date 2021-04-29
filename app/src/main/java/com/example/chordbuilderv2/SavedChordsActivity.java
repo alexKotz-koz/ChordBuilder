@@ -22,7 +22,6 @@ public class SavedChordsActivity extends AppCompatActivity implements SavedChord
     ChordBuilderDBWrapperSaved wrapperSaved;
     public static boolean currentActivitySavedChords = false;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,12 +43,10 @@ public class SavedChordsActivity extends AppCompatActivity implements SavedChord
         cursor.moveToFirst();
         if (cursor.getCount() == 0){
             if (!currentActivitySavedChords && MainActivity.checkActivityMain){
-                System.out.println("in specific");
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
             }
             else {
-                System.out.println("in Main");
                 Toast.makeText(getApplicationContext(),"No Saved Chords",Toast.LENGTH_LONG).show();
                 finish();
             }
@@ -67,12 +64,14 @@ public class SavedChordsActivity extends AppCompatActivity implements SavedChord
         String chordNotes;
         intent.putExtra("INDEX", position);
 
-
         Cursor cursor;
         SQLiteDatabase sqLiteDatabase = chordBuilderDBHelperSaved.getReadableDatabase();
         cursor = sqLiteDatabase.query("userChords",new String[]{"_id","instrument","chordName","fingering","chordNotes"},null,null,null,null,null);
         cursor.moveToPosition(position);
         wrapperSaved = new ChordBuilderDBWrapperSaved(cursor);
+
+        instrument = wrapperSaved.getInstrument();
+        intent.putExtra("INSTRUMENT",instrument);
 
         chordName=wrapperSaved.getChordName();
         intent.putExtra("NAME",chordName);
@@ -100,10 +99,28 @@ public class SavedChordsActivity extends AppCompatActivity implements SavedChord
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.item_home:
+            case (R.id.item_home):
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
                 return true;
+            case (R.id.item_del):
+                Cursor cursor;
+                SQLiteDatabase sqLiteDatabase2 = chordBuilderDBHelperSaved.getReadableDatabase();
+                cursor = sqLiteDatabase2.query("userChords",new String[]{"_id","instrument","chordName","fingering","chordNotes"},null,null,null,null,null);
+                cursor.moveToFirst();
+                if (cursor.getCount() <= 0){
+                    System.out.println("Inhere");
+                    finish();
+                }
+                else {
+                    SQLiteDatabase sqLiteDatabase = chordBuilderDBHelperSaved.getWritableDatabase();
+                    sqLiteDatabase.delete("userChords", null,null);
+                    savedChordAdapter.notifyDataSetChanged();
+                    sqLiteDatabase.close();
+                    Intent intent1 = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent1);
+                }
+                cursor.close();
         }
         return super.onOptionsItemSelected(item);
     }

@@ -23,12 +23,10 @@ import java.io.IOException;
 import java.util.Timer;
 
 public class MainActivity extends AppCompatActivity {
-    private Handler mainHandler;
     Button ukuleleButtonMain;
     Button guitarButtonMain;
-    Menu mainMenu;
-    MediaPlayer mp;
-    public static String userInputBPM;
+    ChordBuilderDBHelperUkulele chordBuilderDBHelperUkulele;
+    ChordBuilderDBHelperSaved chordBuilderDBHelperSaved;
 
 
     public static boolean checkActivityMain = false;
@@ -37,10 +35,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        chordBuilderDBHelperUkulele = new ChordBuilderDBHelperUkulele(getApplicationContext());
+        chordBuilderDBHelperSaved = new ChordBuilderDBHelperSaved(getApplicationContext());
+
         ukuleleButtonMain = findViewById(R.id.buttonUkulele);
         guitarButtonMain = findViewById(R.id.buttonGuitar);
         checkActivityMain = true;
-        mp = MetronomeMediaPlayer.getMediaPlayer();
+
     }
     public void onClickUkulele(View view){
         Intent intent = new Intent(getApplicationContext(), GUIGridUkulele.class);
@@ -51,10 +53,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), GUIGridGuitar.class);
         startActivity(intent);
     }
-    public void onClickCF(View view){
+
+   /* public void onClickCF(View view){
         Intent intent = new Intent(getApplicationContext(), ChordFinderActivity.class);
         startActivity(intent);
-    }
+    }*/
 
 
     public void onClickSavedChord(View view){
@@ -75,11 +78,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.item_home:
+            case (R.id.item_home):
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
                 return true;
-            case R.id.item_instruction:
+            case (R.id.item_instruction):
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                 builder.setTitle("INSTRUCTIONS");
                 builder.setMessage("Select an Instrument to Build a Chord \n\nSelect Saved Chords to View Your Chords");
@@ -93,37 +96,10 @@ public class MainActivity extends AppCompatActivity {
 
                 builder.show();
                 break;
-            case R.id.item_metronome:
+            case (R.id.item_metro):
                 Intent intent1 = new Intent(getApplicationContext(),MetronomeActivity.class);
                 startActivity(intent1);
-               /* AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
-                builder1.setTitle("METRONOME");
-                final View customLayout
-                        = getLayoutInflater()
-                        .inflate(
-                                R.layout.layout_custom_dialog_metronome,
-                                null);
-                builder1.setView(customLayout);
-                builder1.setPositiveButton(
-                                "OK",
-                                new DialogInterface.OnClickListener() {
 
-                                    @Override
-                                    public void onClick(
-                                            DialogInterface dialog,
-                                            int which)
-                                    {
-
-                                        // send data from the
-                                        // AlertDialog to the Activity
-                                        EditText editText
-                                                = customLayout
-                                                .findViewById(
-                                                        R.id.editTextNumberMetro);
-                                        userInputBPM=editText.getText().toString();
-                                    }
-                                });*/
-                return true;
 
         }
         return super.onOptionsItemSelected(item);

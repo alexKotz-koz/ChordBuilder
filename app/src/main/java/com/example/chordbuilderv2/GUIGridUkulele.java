@@ -6,10 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -33,8 +31,6 @@ public class GUIGridUkulele extends AppCompatActivity {
     boolean openA;
 
     ArrayList<String> finalList = new ArrayList<>();
-    ImageView imageView;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +54,7 @@ public class GUIGridUkulele extends AppCompatActivity {
         }
 
         adapterG = new GUIArrayAdapter(this, listG);
-        listViewG = findViewById(R.id.listViewStringG);
+        listViewG = findViewById(R.id.listViewStringGSaved);
         listViewG.setAdapter(adapterG);
 
         listViewG.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -83,16 +79,16 @@ public class GUIGridUkulele extends AppCompatActivity {
         });
 
         adapterC = new GUIArrayAdapter(this, listC);
-        listViewC = findViewById(R.id.listViewStringC);
+        listViewC = findViewById(R.id.listViewStringCSaved);
         listViewC.setAdapter(adapterC);
 
         listViewC.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                if(openC == false && listC.get(i) == "o"){
+                if(!openC && listC.get(i).equals("o")){
                     Toast.makeText(getApplicationContext(), "note already exists for string C please deselect it to add a new one.", Toast.LENGTH_LONG).show();
                 }
-                else if(openC == false && listC.get(i) == "p"){
+                else if(!openC && listC.get(i).equals("p")){
                     listC.set(i, "o");
                     openC = true;
                     finalList.set(1, "0");
@@ -107,16 +103,16 @@ public class GUIGridUkulele extends AppCompatActivity {
         });
 
         adapterE = new GUIArrayAdapter(this, listE);
-        listViewE = findViewById(R.id.listViewStringE);
+        listViewE = findViewById(R.id.listViewStringESaved);
         listViewE.setAdapter(adapterE);
 
         listViewE.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                if(openE == false && listE.get(i) == "o"){
+                if(!openE && listE.get(i).equals("o")){
                     Toast.makeText(getApplicationContext(), "note already exists for string E please deselect it to add a new one.", Toast.LENGTH_LONG).show();
                 }
-                else if(openE == false && listE.get(i) == "p"){
+                else if(!openE && listE.get(i).equals("p")){
                     listE.set(i, "o");
                     openE = true;
                     finalList.set(2, "0");
@@ -131,16 +127,16 @@ public class GUIGridUkulele extends AppCompatActivity {
         });
 
         adapterA = new GUIArrayAdapter(this, listA);
-        listViewA = findViewById(R.id.listViewStringA);
+        listViewA = findViewById(R.id.listViewStringASaved);
         listViewA.setAdapter(adapterA);
 
         listViewA.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                if(!openA && listA.get(i) == "o"){
+                if(!openA && listA.get(i).equals("o")){
                     Toast.makeText(getApplicationContext(), "note already exists for string A please deselect it to add a new one.", Toast.LENGTH_LONG).show();
                 }
-                else if(!openA && listA.get(i) == "p"){
+                else if(!openA && listA.get(i).equals("p")){
                     listA.set(i, "o");
                     openA = true;
                     finalList.set(3, "0");

@@ -10,6 +10,7 @@ public class ChordBuilderDBHelperUkulele extends SQLiteOpenHelper {
     ChordBuilderDBContractUkulele chordBuilderDBContractUkulele;
     private static final String TABLE_USER_TABLE = "userChords";
     private static final String TABLE_UKULELE = "ukuleleChords";
+
     public ChordBuilderDBHelperUkulele(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
         chordBuilderDBContractUkulele = new ChordBuilderDBContractUkulele();
@@ -24,9 +25,8 @@ public class ChordBuilderDBHelperUkulele extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-        db.execSQL("DROP TABLE IF EXISTS '" + TABLE_UKULELE + "'");
-        db.execSQL("DROP TABLE IF EXISTS '" + TABLE_USER_TABLE + "'");
-
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_UKULELE );
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER_TABLE );
         onCreate(db);
     }
 }

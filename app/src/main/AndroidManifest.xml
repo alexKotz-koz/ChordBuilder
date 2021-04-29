@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.chordbuilderv2">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,16 +14,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ChordBuilderV2">
-        <activity android:name=".MetronomeActivity"></activity>
-        <activity android:name=".ChordFinderResultActivity" />
-        <activity android:name=".ChordFinderActivity" />
-        <activity android:name=".SavedChordSpecificActivity" />
-        <activity android:name=".SavedChordsActivity" />
-        <activity android:name=".GUIGridUkulele" />
-        <activity android:name=".GUIGridGuitar" />
-        <activity android:name=".UkuleleActivity" />
-        <activity android:name=".GuitarActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MetronomeActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".SavedChordSpecificActivityGuitar" android:screenOrientation="portrait"/>
+        <activity android:name=".ChordFinderResultActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ChordFinderActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".SavedChordSpecificActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".SavedChordsActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".GUIGridUkulele" android:screenOrientation="portrait"/>
+        <activity android:name=".GUIGridGuitar" android:screenOrientation="portrait"/>
+        <activity android:name=".UkuleleActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".GuitarActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".MainActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

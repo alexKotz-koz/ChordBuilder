@@ -5,6 +5,7 @@ import android.database.Cursor;
 public class ChordBuilderDBWrapperUkulele {
     private Cursor cursor;
     String name = "";
+
     public ChordBuilderDBWrapperUkulele(Cursor cursor){
         this.cursor = cursor;
     }

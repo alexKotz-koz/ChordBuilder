@@ -6,4 +6,8 @@
         android:id="@+id/item_home"
         android:title="Home"
         app:showAsAction="ifRoom|withText" />
+    <item
+        android:id="@+id/item_del"
+        android:title="Delete All"
+        app:showAsAction="ifRoom|withText" />
 </menu>
