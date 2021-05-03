@@ -26,12 +26,12 @@ public class SavedChordSpecificActivityGuitar extends AppCompatActivity {
     private static final String DATABASE_TABLE ="userChords";
 
 
-    GUIArrayAdapter adapterE;
-    GUIArrayAdapter adapterA;
-    GUIArrayAdapter adapterD;
-    GUIArrayAdapter adapterG;
-    GUIArrayAdapter adapterB;
-    GUIArrayAdapter adapterEh;
+    GuiArrayAdapterguitar adapterE;
+    GuiArrayAdapterguitar adapterA;
+    GuiArrayAdapterguitar adapterD;
+    GuiArrayAdapterguitar adapterG;
+    GuiArrayAdapterguitar adapterB;
+    GuiArrayAdapterguitar adapterEh;
 
     ListView listViewESaved;
     ListView listViewASaved;
@@ -85,6 +85,7 @@ public class SavedChordSpecificActivityGuitar extends AppCompatActivity {
         chordFingering = getIntent().getStringExtra("FINGERING");
         chordNotes = getIntent().getStringExtra("NOTES");
 
+
         textViewSavedSpecificInstrumentGuitar.setText("GUITAR");
         textViewSavedSpecificChordNameGuitar.setText(chordName);
         textViewSavedSpecificChordFingeringGuitar.setText(chordFingering);
@@ -134,22 +135,22 @@ public class SavedChordSpecificActivityGuitar extends AppCompatActivity {
             listEh.set(noteForEhString,"p");
         }
 
-        adapterE = new GUIArrayAdapter(this, listE);
+        adapterE = new GuiArrayAdapterguitar(this, listE);
         listViewESaved.setAdapter(adapterE);
 
-        adapterA = new GUIArrayAdapter(this, listA);
+        adapterA = new GuiArrayAdapterguitar(this, listA);
         listViewASaved.setAdapter(adapterA);
 
-        adapterD = new GUIArrayAdapter(this, listD);
+        adapterD = new GuiArrayAdapterguitar(this, listD);
         listViewDSaved.setAdapter(adapterD);
 
-        adapterG = new GUIArrayAdapter(this, listG);
+        adapterG = new GuiArrayAdapterguitar(this, listG);
         listViewGSaved.setAdapter(adapterG);
 
-        adapterB = new GUIArrayAdapter(this, listB);
+        adapterB = new GuiArrayAdapterguitar(this, listB);
         listViewBSaved.setAdapter(adapterB);
 
-        adapterEh = new GUIArrayAdapter(this, listEh);
+        adapterEh = new GuiArrayAdapterguitar(this, listEh);
         listViewEhSaved.setAdapter(adapterEh);
     }
 
