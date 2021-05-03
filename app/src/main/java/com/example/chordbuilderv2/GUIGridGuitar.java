@@ -24,12 +24,12 @@ public class GUIGridGuitar extends AppCompatActivity {
     ArrayList<String> listG = new ArrayList<>();
     ArrayList<String> listB = new ArrayList<>();
     ArrayList<String> listEh = new ArrayList<>();
-    GUIArrayAdapter adapterE;
-    GUIArrayAdapter adapterA;
-    GUIArrayAdapter adapterD;
-    GUIArrayAdapter adapterG;
-    GUIArrayAdapter adapterB;
-    GUIArrayAdapter adapterEh;
+    GuiArrayAdapterguitar adapterE;
+    GuiArrayAdapterguitar adapterA;
+    GuiArrayAdapterguitar adapterD;
+    GuiArrayAdapterguitar adapterG;
+    GuiArrayAdapterguitar adapterB;
+    GuiArrayAdapterguitar adapterEh;
     boolean openE;
     boolean openA;
     boolean openD;
@@ -64,7 +64,7 @@ public class GUIGridGuitar extends AppCompatActivity {
             listEh.add("o");
         }
 
-        adapterE = new GUIArrayAdapter(this, listE);
+        adapterE = new GuiArrayAdapterguitar(this, listE);
         listViewE = findViewById(R.id.listViewStringESaved);
         listViewE.setAdapter(adapterE);
 
@@ -110,7 +110,7 @@ public class GUIGridGuitar extends AppCompatActivity {
             }
         });
 
-        adapterA = new GUIArrayAdapter(this, listA);
+        adapterA = new GuiArrayAdapterguitar(this, listA);
         listViewA = findViewById(R.id.listViewStringASaved);
         listViewA.setAdapter(adapterA);
 
@@ -155,7 +155,7 @@ public class GUIGridGuitar extends AppCompatActivity {
             }
         });
 
-        adapterD = new GUIArrayAdapter(this, listD);
+        adapterD = new GuiArrayAdapterguitar(this, listD);
         listViewD = findViewById(R.id.listViewStringD);
         listViewD.setAdapter(adapterD);
 
@@ -200,7 +200,7 @@ public class GUIGridGuitar extends AppCompatActivity {
             }
         });
 
-        adapterG = new GUIArrayAdapter(this, listG);
+        adapterG = new GuiArrayAdapterguitar(this, listG);
         listViewG = findViewById(R.id.listViewStringGSaved);
         listViewG.setAdapter(adapterG);
 
@@ -245,7 +245,7 @@ public class GUIGridGuitar extends AppCompatActivity {
             }
         });
 
-        adapterB = new GUIArrayAdapter(this, listB);
+        adapterB = new GuiArrayAdapterguitar(this, listB);
         listViewB = findViewById(R.id.listViewStringB);
         listViewB.setAdapter(adapterB);
 
@@ -291,7 +291,7 @@ public class GUIGridGuitar extends AppCompatActivity {
         });
 
 
-        adapterEh = new GUIArrayAdapter(this, listEh);
+        adapterEh = new GuiArrayAdapterguitar(this, listEh);
         listViewEh = findViewById(R.id.listViewStringEh);
         listViewEh.setAdapter(adapterEh);
 
